@@ -1,0 +1,11 @@
+@import "base/__base";
+@import "components/__base";
+
+body {
+  margin: 10% 0 5%;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 720px;
+}

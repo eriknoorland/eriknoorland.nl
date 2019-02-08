@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Virtual",
+    "type": "virtual"
+  },
+  {
+    "label": "Physical",
+    "type": "physical"
+  }
+]

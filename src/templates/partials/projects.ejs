@@ -1,0 +1,17 @@
+<section class="page">
+  <h2 class="page-title">
+    Projects
+  </h2>
+
+  <p class="page-paragraph">
+    These are the projects i have done so far. Projects that i am particularly proud of in one way or another and projects i am able to share publicly on this personal portfolio.
+  </p>
+
+  <!-- {{> filters}} -->
+
+  <ul class="project__list">
+    <% site.projects.forEach((project) => { %>
+      <%- include('./project', { project }); %>
+    <% }) %>
+  </ul>
+</section>

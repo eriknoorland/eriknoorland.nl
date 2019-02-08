@@ -1,0 +1,46 @@
+body {
+  font-family: $baseFont;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1.6;
+  color: $baseFontColor;
+
+  @media(min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: inherit;
+
+  @media(min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+
+  @media(min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+p {
+  @media(min-width: 768px) {
+    text-align: justify;
+  }
+}
+
+a {
+  color: #3176cb;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
