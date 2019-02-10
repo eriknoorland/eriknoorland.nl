@@ -1,6 +1,12 @@
 @import "base/__base";
 @import "components/__base";
 
+html {
+  &.dark {
+    background: #2b2c2f;
+  }
+}
+
 body {
   margin: 10% 0 5%;
 }

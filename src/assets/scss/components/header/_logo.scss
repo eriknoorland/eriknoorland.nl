@@ -4,4 +4,8 @@
   width: 25%;
   height: auto;
   fill: $baseFontColor;
+
+  .dark & {
+    fill: $baseFontColorDark;
+  }
 }
