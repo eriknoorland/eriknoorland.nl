@@ -13,3 +13,5 @@ const loadScript = (src, callback) => {
 
   document.head.appendChild(js);
 }
+
+export default loadScript;

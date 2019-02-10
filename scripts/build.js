@@ -14,12 +14,18 @@ const {
 const config = require('../site.config');
 
 const srcPath = './src';
-const imgSrcPath = `${srcPath}/assets/img/exports`;
+const imgSrcPath = `${srcPath}/assets/img`;
 const distPath = './public';
 const imgDistPath = `${distPath}/img`;
 
 // clear destination folder
 fse.emptyDirSync(distPath);
+
+// copy projects
+fse.copy(`${srcPath}/projects`, `${distPath}/projects`);
+
+// copy vid
+fse.copy(`${srcPath}/assets/vid`, `${distPath}/vid`);
 
 // compile scss
 const compiledScss = sass.renderSync({ file: `${srcPath}/assets/scss/base.scss`, outputStyle: 'compressed' });

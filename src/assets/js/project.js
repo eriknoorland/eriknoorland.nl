@@ -1,3 +1,6 @@
+import closest from './utils/closest';
+import scrollTo from './utils/scrollTo';
+
 const hasSessionStorage = 'sessionStorage' in window;
 
 /**
@@ -71,7 +74,7 @@ function toggle(project, toggle) {
         .then(onProjectLoadSucces.bind(null, content, storageKey));
     }
 
-    scrollto(project.offsetTop, () => {});
+    scrollTo(project.offsetTop, () => {});
   }
 }
 

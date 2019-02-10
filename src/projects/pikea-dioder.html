@@ -1,0 +1,14 @@
+<img src="/img/pikea-dioder-preview@1x.jpg" srcset="/img/pikea-dioder-preview@2x.jpg 2x" alt="Pikea Dioder" class="project__preview__image">
+
+<p>
+  After a couple of Google searches i found that people beat me to it and made instructables of how to do it. They even added pictures of the Dioder controller circuit and how to modify this to control it using a Raspberry Pi. When i opened my controller the layout of the circuit was not the same as all the examples i found (are they ever?). Luckily this one guy added some hi-res images of the circuit board he had and although the layout was a bit different it seemed to to have the same components.
+</p>
+<p>
+  I started to disassemble all the Ikea components and making a prototype. I just wanted to see if this could work. When all the wires were in place and the Raspberry Pi was up and running i was ready to write some code. At first i used Ajax to call an Express API service to change the colour of the LED strip. While that did worked out, a colleague pointed out to me that this might be an ideal project for a web socket. Since i never used web sockets before and these projects are also about learning i decided to ditch the Express API and refactored everything to socket.io. I think i left off with less code than before and it even works better / faster.
+</p>
+<p>
+  You can check out the code on <a href="https://github.com/eriknoorland/pikeaDioderController" target="_blank">Github</a>.
+</p>
+<p>
+  When everything was in working order there was one thing left to do and that was to make it nicer to look at (even though i would put it underneath my desk somewhere). After reading Steve Jobs biography i was inspired to make it as beautiful as i could although no one would ever see it. It was something his dad tought him and it stood for the quality of your project. I went for a black aluminum housing with a blue LED in the front to show that the NodeJS server is running.
+</p>

@@ -1,7 +1,7 @@
 <% if (project.publish) { %>
   <li class="project" data-js-project-type="<%= project.type %>">
     <% if (project.url) { %>
-      <a href="<%= project.url %>" title="<%= project.title %>" class="project__link project__link--title <% if (project.openInDialog) { %>toggle-trigger<% } %>" <% if (project.url) { %>target="_blank"<% } %>>
+      <a href="<%= project.url %>" title="<%= project.title %>" class="project__link project__link--title <% if (project.openInDialog) { %>toggle-trigger<% } %>" <% if (project.url) { %>target="_blank" rel="noopener noreferrer"<% } %>>
     <% } %>
         <h3 class="project__title <% if (project.url) { %>project__title--has-link<% } %>">
           <%= project.title %>
@@ -11,7 +11,7 @@
     <% } %>
 
     <% if (project.url) { %>
-      <a href="<%= project.url %>" title="<%= project.title %>" class="project__link <% if (project.openInDialog) { %>toggle-trigger<% } %>" <% if (project.url) { %>target="_blank"<% } %>>
+      <a href="<%= project.url %>" title="<%= project.title %>" class="project__link <% if (project.openInDialog) { %>toggle-trigger<% } %>" <% if (project.url) { %>target="_blank" rel="noopener noreferrer"<% } %>>
     <% } %>
         <img
           src="/img/<%= project.thumbnail %>@1x.jpg"
