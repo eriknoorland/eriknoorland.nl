@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"load",
+				"loadScript"
+			],
+			[
+				"scrol",
+				"scrollTo"
+			],
+			[
+				"close",
+				"closest"
+			],
+			[
+				"clo",
+				"closest"
+			],
+			[
 				"num",
 				"numGamesPlayed"
 			],
@@ -66,10 +82,6 @@
 			[
 				"overview",
 				"overviewModel"
-			],
-			[
-				"load",
-				"loadQueue"
 			],
 			[
 				"hover",
@@ -420,10 +432,6 @@
 				"onMouseLeave"
 			],
 			[
-				"close",
-				"closeItem"
-			],
-			[
 				"off",
 				"offsetLeft"
 			],
@@ -506,24 +514,16 @@
 			[
 				"set",
 				"setTimeout"
-			],
-			[
-				"stop",
-				"stopPropagation"
-			],
-			[
-				"handle",
-				"handleZoomInOutEvent"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "TO DO's\n\n- clean up build script (modules?)\n- compile / minify javascript\n- project detail render / load\n\ndark mode\n- change when entering konami code (up, up, down, down, left,, right, left, right, b, a)\n- store in local storage\n- background color #2b2c2f\n- font color + logo color + header bottom border color #cecece\n- link color #317778\n- update photo to github / social media image\n- fix favicon\n- social media icons color ?\n- add new projects?\n\nhttps://medium.freecodecamp.org/how-i-added-dark-mode-to-my-website-33611d246425\nhttps://medium.com/@markcortejos/konami-code-fun-adding-cheat-codes-to-your-website-736f795d20ce",
+			"contents": "TO DO's\n\n- clean up build script (modules? || package.json)\n\ndark mode\n- dark mode project close image (replace with css)\n- change when entering konami code (up, up, down, down, left,, right, left, right, b, a)\n- store in local storage\n- add new projects\n\nhttps://medium.freecodecamp.org/how-i-added-dark-mode-to-my-website-33611d246425\nhttps://medium.com/@markcortejos/konami-code-fun-adding-cheat-codes-to-your-website-736f795d20ce",
 			"settings":
 			{
-				"buffer_size": 628,
+				"buffer_size": 433,
 				"line_ending": "Unix",
 				"name": "TO DO's"
 			}
@@ -611,17 +611,34 @@
 	"expanded_folders":
 	[
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates"
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src"
 	],
 	"file_history":
 	[
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/base.js",
+		"/Users/eriknoorland/Downloads/f1-kalender-2019.ics",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/layouts/default.ejs",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base.scss",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/components/header/_logo.scss",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/components/header/_header.scss",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base/_typography.scss",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base/_vars.scss",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/scripts/build.js",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/utils/loadScript.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base/__base.scss",
+		"/Users/eriknoorland/Desktop/CE3_Ender3_Original_Mini_tray.gcode",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/public/projects/g-star-motion.html",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/project.ejs",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/contact.ejs",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/package.json",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/webpack.config.js",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/project.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/utils/scrollTo.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/utils/loadScript.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/utils/closest.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/public/js/base.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/base.js",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/public/index.html",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/.babelrc",
+		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/lib/assets/js/base.js",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/font.js",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/utils/filter.js",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/js/main.js",
@@ -629,23 +646,14 @@
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/.gitignore",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/about.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/data/filters.json",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/project.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/site.config",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/projects.ejs",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/public/index.html",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/filters.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/filter.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/data/projects.json",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/pages/index.ejs",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/contact.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/README.md",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/css/base.css",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/package.json",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base/_typography.scss",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/components/header/_header.scss",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base/_vars.scss",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base.scss",
-		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/assets/scss/base/__base.scss",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/partials/header.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland.nl/src/templates/layouts/layout.ejs",
 		"/Users/eriknoorland/Documents/dev/git/eriknoorland/src/templates/pages/index.ejs",
@@ -734,17 +742,7 @@
 		"/Users/nlnoore/Documents/dev/js/fe-assignment/app/vendor/mocha/mocha.js",
 		"/Users/nlnoore/Documents/dev/js/fe-assignment/app/vendor/chai/chai.js",
 		"/Users/nlnoore/Documents/dev/git/gstar-hybris/hybris/bin/custom/gstar/gstarstorefront/web/webroot/gstar/scss/base/project/vars/_general.scss",
-		"/Users/nlnoore/Documents/dev/git/gstar-hybris/hybris/bin/custom/gstar/gstarstorefront/web/webroot/gstar/scss/specifics/campaigns/eyewear/contentBlock/_body.scss",
-		"/Users/nlnoore/Documents/dev/git/gstar-hybris/hybris/bin/custom/gstar/gstarstorefront/web/webroot/gstar/js/app/components/campaigns/x25/Overview.js",
-		"/Users/nlnoore/Documents/dev/git/gstar-hybris/hybris/bin/custom/gstar/gstarstorefront/web/webroot/gstar/js/app/desktop/campaign-x25.js",
-		"/Applications/XAMPP/xamppfiles/htdocs/fe-assignment/index.html",
-		"/Applications/XAMPP/xamppfiles/htdocs/fe-assignment/assignment.md",
-		"/Applications/XAMPP/xamppfiles/htdocs/fe-assignment/js/Player.js",
-		"/Applications/XAMPP/xamppfiles/htdocs/fe-assignment/js/Config.js",
-		"/Applications/XAMPP/xamppfiles/htdocs/fe-assignment/js/Game.js",
-		"/Applications/XAMPP/xamppfiles/htdocs/fe-assignment/js/main.js",
-		"/Users/nlnoore/Downloads/assignment/js/Player.js",
-		"/Users/nlnoore/Downloads/assignment/js/Game.js"
+		"/Users/nlnoore/Documents/dev/git/gstar-hybris/hybris/bin/custom/gstar/gstarstorefront/web/webroot/gstar/scss/specifics/campaigns/eyewear/contentBlock/_body.scss"
 	],
 	"find":
 	{
@@ -762,6 +760,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"RN",
+			"RN365 ",
+			"RN365",
+			"target=\"_blank\"",
+			"en_closest",
+			"closest_default",
+			"closest",
 			"hasSessionStorage",
 			"hasLocalStorage",
 			"done",
@@ -785,6 +790,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -803,15 +809,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 628,
+						"buffer_size": 433,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								43,
-								43
+								120,
+								120
 							]
 						],
 						"settings":
@@ -872,7 +878,7 @@
 	"project": "eriknoorland.nl.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
