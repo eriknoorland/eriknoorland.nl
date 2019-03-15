@@ -101,7 +101,7 @@
     "title": "Erik Noorland",
     "thumbnail": "eriknoorland",
     "description": "This is my own site. I wanted to post this in my portfolio because of some of the (new) techniques / tools (inline (above the fold) CSS, lazy load Google fonts, src-set for retina images) i used during its construction. For me the requirements for this website were all technical (speed optimisations, performance, etc.).",
-    "tags": ["HTML5","CSS3","Javascript","Sass","Grunt","Static","Retina images"],
+    "tags": ["HTML5","CSS3","Vanilla Javascript","ES6","Sass","Static","Retina images"],
     "publish": "true",
     "type": "virtual"
   },
@@ -109,7 +109,7 @@
     "title": "JSParallax",
     "thumbnail": "javascript",
     "description": "I started this project after i saw ParallaxJS and thought to myself that i had created something similar a couple of years ago in Actionscript 3. I dusted off my old AS3 code and started rewriting it for Javascript. The result? A somewhat similar approach to what i had in AS3 with great performance (in recent browsers using the CSS3 property translate3d).",
-    "tags": ["Javascript"],
+    "tags": ["Vanilla Javascript"],
     "publish": "false",
     "type": "virtual"
   },
