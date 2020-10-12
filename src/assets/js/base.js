@@ -1,5 +1,4 @@
 import initFont from './font';
-import initFilters from './filter';
 import initProjectTriggers from './project';
 import loadScript from './utils/loadScript';
 
@@ -9,7 +8,6 @@ import loadScript from './utils/loadScript';
    */
   function initialise() {
     initFont();
-    initFilters();
     initProjectTriggers();
   }
 

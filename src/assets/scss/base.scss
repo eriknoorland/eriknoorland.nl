@@ -2,7 +2,7 @@
 @import "components/__base";
 
 html {
-  &.dark {
+  @media (prefers-color-scheme: dark) {
     background: #2b2c2f;
   }
 }

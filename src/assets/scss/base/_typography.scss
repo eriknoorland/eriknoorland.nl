@@ -5,7 +5,7 @@ body {
   line-height: 1.6;
   color: $baseFontColor;
 
-  .dark & {
+  @media (prefers-color-scheme: dark) {
     color: $baseFontColorDark;
   }
 
@@ -27,11 +27,7 @@ h1, h2, h3 {
 h3 {
   margin-top: 0;
   font-size: 18px;
-  font-weight: bold;
-
-  @media(min-width: 768px) {
-    font-size: 18px;
-  }
+  font-weight: normal;
 }
 
 p {
@@ -43,6 +39,10 @@ p {
 a {
   color: #3176cb;
   text-decoration: none;
+
+  @media (prefers-color-scheme: dark) {
+    color: #60a7bc;
+  }
 
   &:hover {
     text-decoration: underline;

@@ -5,7 +5,7 @@
   height: auto;
   fill: $baseFontColor;
 
-  .dark & {
+  @media (prefers-color-scheme: dark) {
     fill: $baseFontColorDark;
   }
 }

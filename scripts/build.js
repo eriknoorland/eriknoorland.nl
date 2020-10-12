@@ -6,11 +6,11 @@ const { promisify } = require('util');
 const ejsRenderFile = promisify(require('ejs').renderFile);
 const globP = promisify(require('glob'));
 const sass = require('node-sass');
+const minify = require('html-minifier').minify;
 const {
-  getResponsiveImages,
-  generateResponsiveImages,
-  renameImagesToSize,
-} = require('responsive-images-generator/lib');
+  getGeneratedImages,
+  generateImages,
+} = require('./generateRetinaImages');
 const config = require('../site.config');
 
 const srcPath = './src';
@@ -36,12 +36,13 @@ globP('**/*.jpg', { cwd: imgSrcPath })
   .then((images) => {
     const paths = images.map(image => `${imgSrcPath}/${image}`);
     const config = [
-      { width: '50%', rename: { suffix: '@1x' } },
-      { width: '100%', rename: { suffix: '@2x' } },
+      { width: 0.5, rename: { suffix: '@1x' } },
+      // { width: 0.75, rename: { suffix: '@1.5x' } },
+      { width: 1, rename: { suffix: '@2x' } },
     ];
 
-    generateResponsiveImages(paths, config)
-      .then(getResponsiveImages.bind(null, `${imgSrcPath}`))
+    generateImages(paths, config)
+      .then(getGeneratedImages.bind(null, `${imgSrcPath}`))
       .then((images) => {
         images.forEach((image) => {
           if (!fse.existsSync(imgDistPath)){
@@ -101,4 +102,11 @@ const renderLayout = (body) => ejsRenderFile(`${srcPath}/templates/layouts/defau
  * @param {String} name
  * @param {String} content
  */
-const writeHtmlFile = (path, name, content) => fse.writeFile(`${path}/${name}.html`, content);
+const writeHtmlFile = (path, name, content) => {
+  const minifiedContent = minify(content, {
+    collapseWhitespace: true,
+    minifyCSS: true,
+  });
+
+  fse.writeFile(`${path}/${name}.html`, minifiedContent);
+};
