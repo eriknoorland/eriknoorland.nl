@@ -1,4 +1,5 @@
 import initFont from './font';
+import initLazyLoad from './lazyload';
 import initProjectTriggers from './project';
 import loadScript from './utils/loadScript';
 
@@ -9,6 +10,7 @@ import loadScript from './utils/loadScript';
   function initialise() {
     initFont();
     initProjectTriggers();
+    initLazyLoad();
   }
 
   /**

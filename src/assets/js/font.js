@@ -18,7 +18,7 @@ const initFont = () => {
     .fetch('http://fonts.googleapis.com/css?family=Open+Sans:300')
     .then(response => response.text())
     .then(onFontLoadSucces);
-}
+};
 
 /**
  * Handle font loaded event
@@ -27,7 +27,7 @@ const initFont = () => {
 const onFontLoadSucces = (response) => {
   const head = document.head || document.getElementsByTagName('head')[0];
   const style = document.createElement('style');
-  
+
   style.type = 'text/css';
 
   if (style.styleSheet){
@@ -41,6 +41,6 @@ const onFontLoadSucces = (response) => {
   if (hasLocalStorage && !localStorage.getItem('google-font')) {
     localStorage.setItem('google-font', response);
   }
-}
+};
 
 export default initFont;
