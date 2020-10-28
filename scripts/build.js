@@ -2,11 +2,13 @@
 
 const fse = require('fs-extra');
 const path = require('path');
+const renameExtension = require('rename-extension')
 const { promisify } = require('util');
 const ejsRenderFile = promisify(require('ejs').renderFile);
 const globP = promisify(require('glob'));
 const sass = require('node-sass');
 const minify = require('html-minifier').minify;
+const webp = require('webp-converter');
 const {
   getGeneratedImages,
   generateImages,
@@ -31,7 +33,17 @@ fse.copy(`${srcPath}/assets/vid`, `${distPath}/vid`);
 const compiledScss = sass.renderSync({ file: `${srcPath}/assets/scss/base.scss`, outputStyle: 'compressed' });
 const css = compiledScss.css.toString('utf8');
 
-// generate (retina) images
+// generate webp images
+const generateWebPImages = () => {
+  globP('**/*.jpg', { cwd: imgDistPath })
+    .then((images) => {
+      images.forEach((image) => {
+        webp.cwebp(`${imgDistPath}/${image}`, `${imgDistPath}/${renameExtension(image, '.webp')}`, '-q 80');
+      });
+    });
+};
+
+// generate retina images
 globP('**/*.jpg', { cwd: imgSrcPath })
   .then((images) => {
     const paths = images.map(image => `${imgSrcPath}/${image}`);
@@ -41,7 +53,7 @@ globP('**/*.jpg', { cwd: imgSrcPath })
       { width: 1, rename: { suffix: '@2x' } },
     ];
 
-    generateImages(paths, config)
+    return generateImages(paths, config)
       .then(getGeneratedImages.bind(null, `${imgSrcPath}`))
       .then((images) => {
         images.forEach((image) => {
@@ -55,7 +67,8 @@ globP('**/*.jpg', { cwd: imgSrcPath })
           );
         });
       });
-    });
+    })
+    .then(generateWebPImages);
 
 // copy icons folder
 globP('**', { cwd: `${srcPath}/assets/icons` })
