@@ -22,7 +22,7 @@
     "ejs": "^2.7.4",
     "fs-extra": "^7.0.1",
     "glob": "^7.1.6",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "rename-extension": "^4.0.0",
     "serve": "^11.3.2",
     "webp-converter": "^2.3.0",
