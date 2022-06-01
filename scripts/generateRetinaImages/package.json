@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "rename": "^1.0.4",
-    "sharp": "^0.26.1"
+    "sharp": "^0.30.5"
   }
 }
