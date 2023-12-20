@@ -6,11 +6,6 @@
   @return $number;
 }
 
-// convert a px based size to rem
-// @function rem($size) {
-//   @return math.div($size, $fontSize * 1rem);
-// }
-
 @function stripUnit($value) {
   @return math.div($value, ($value * 0 + 1));
 }
