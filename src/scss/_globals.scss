@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $fontSize;
+  overflow-x: hidden;
+  color: #303030;
+}
+
+a {
+  color: #05f;
+  transition: color .35s;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.g-image {
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+
+  @return $number;
+}
+
+// convert a px based size to rem
+// @function rem($size) {
+//   @return math.div($size, $fontSize * 1rem);
+// }
+
+@function stripUnit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+
+@function rem($pxValue) {
+  @return #{math.div(stripUnit($pxValue), stripUnit($fontSize))}rem;
+}

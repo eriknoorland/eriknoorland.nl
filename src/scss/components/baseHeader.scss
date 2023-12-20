@@ -1,0 +1,73 @@
+@import "../lib.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 5px #{$sectionPaddingHorizontal};
+  height: $topNavigationHeight;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: transform .35s;
+
+  &--visible {
+    transform: translateY(0);
+  }
+
+  @media(min-width: 768px) {
+    padding: 5px #{$sectionPaddingDesktopHorizontal};
+  }
+}
+
+.header__logo {
+  width: 40px;
+  fill: #303030;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav__link {
+  @include nav;
+  position: relative;
+  display: block;
+  margin: 0 8px;
+  color: rgba(#303030, .8);
+  text-decoration: none;
+  transition: color .25s;
+
+  @media(min-width: 768px) {
+    margin: 0 16px;
+  }
+
+  &:last-child {
+    margin-right: 0
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #303030;
+    transition: width .25s;
+  }
+
+  &:hover {
+    color: #303030;
+
+    &:after {
+      width: 24px;
+    }
+  }
+}
