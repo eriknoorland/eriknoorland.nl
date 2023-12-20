@@ -1,4 +1,5 @@
-.DS_Store
-*.sublime-*
+.env.*
 node_modules/
-public/
+.cache/
+public
+src/gatsby-types.d.ts

@@ -1,0 +1,58 @@
+@import "../lib.scss";
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #fff;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.hero__logoWrapper {
+  margin: 0 0 32px 0;
+  width: 200px;
+
+  @media (min-width: 768px) {
+    margin: 0 64px 0 0;
+    width: 250px;
+  }
+}
+
+.hero__logo {
+  fill: #303030;
+}
+
+.hero__title {
+  @include fontSize(36px);
+  font-family: $fontFamily;
+  font-weight: 400;
+  line-height: 1.4;
+
+  @media (min-width: 768px) {
+    @include fontSize(56px);
+  }
+}
+
+.hero__subtitle {
+  @include fontSize(24px);
+  font-family: $fontFamily;
+  font-weight: 300;
+  line-height: 1.4;
+  opacity: .8;
+
+  @media (min-width: 768px) {
+    @include fontSize(36px);
+  }
+}

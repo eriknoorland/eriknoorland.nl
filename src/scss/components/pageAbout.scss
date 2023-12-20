@@ -1,0 +1,69 @@
+@import "../lib.scss";
+
+.about {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .about {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.about__imageWrapper {
+  margin-top: -#{$sectionPaddingVertical};
+  margin-right: -#{$sectionPaddingHorizontal};
+  margin-bottom: #{$sectionPaddingVertical};
+  margin-left: -#{$sectionPaddingHorizontal};
+  flex: 0 0 auto;
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .about__imageWrapper {
+    margin: 0 0 0 rem(64px);
+    width: rem(384px);
+    order: 2;
+  }
+}
+
+.about__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .about__image {
+    border-radius: $borderRadius;
+  }
+}
+
+.about__content {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .about__content {
+    order: 1;
+  }
+}
+
+.about__title {
+  @include heading-2;
+  margin: 0 0 rem(18px) 0;
+}
+
+.about__body {
+  @include body;
+  
+  p {
+    margin: 0 0 rem(32px) 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

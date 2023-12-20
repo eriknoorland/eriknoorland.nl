@@ -1,0 +1,37 @@
+@import "../lib.scss";
+
+.projectCard {
+  position: relative;
+  border-radius: $borderRadius;
+  overflow: hidden;
+  transform: translateY(40%);
+  opacity: 0;
+  transition: transform .35s, opacity .35s;
+
+  &--inView {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.projectCard__image,
+.projectCard__video {
+  display: block;
+  padding: 4px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(#303030, .2);
+}
+
+.project__category {
+  @include label;
+  position: absolute;
+  top: 0;
+  right: 16px;
+  padding: 8px;
+  background: #303030;
+  color: #fff;
+  border-bottom-left-radius: $borderRadius;
+  border-bottom-right-radius: $borderRadius;
+}

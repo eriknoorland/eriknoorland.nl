@@ -1,0 +1,10 @@
+@import "../lib.scss";
+
+.contact__title {
+  @include heading-2;
+  margin: 0 0 18px 0;
+}
+
+.contact__body {
+  @include body;
+}

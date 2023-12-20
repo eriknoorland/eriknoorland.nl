@@ -1,0 +1,35 @@
+@use 'sass:math';
+@import "../lib.scss";
+
+.projects__title {
+  @include heading-2;
+  margin: 0 0 18px 0;
+}
+
+.projects__body {
+  @include body;
+  margin: 0 0 32px 0;
+}
+
+.projects__grid {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 0 $sectionPaddingHorizontal;
+
+  @media(min-width: 768px) {
+    padding: 0 #{math.div($sectionPaddingDesktopHorizontal, 2)};
+  }
+}
+
+.projects__gridInner {
+  columns: 12 400px;
+  column-gap: $sectionPaddingHorizontal;
+}
+
+.projects__filters {
+  margin: 0 0 32px 0;
+}
+
+.projects__item {
+  margin: 0 0 16px 0;
+}

@@ -1,0 +1,15 @@
+$fontFamily: 'Roboto', sans-serif;
+$fontSize: 16px;
+
+$topNavigationHeight: 56px;
+
+$sectionPaddingVertical: 50px;
+$sectionPaddingHorizontal: 16px;
+$sectionPaddingDesktopVertical: 120px;
+$sectionPaddingDesktopHorizontal: 32px;
+
+$borderRadius: 3px;
+
+:export {
+  topNavigationHeight: strip-unit($topNavigationHeight);
+}

@@ -1,0 +1,37 @@
+@import "../lib.scss";
+
+.projectFilters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.projectFilters__item {
+  display: flex;
+  align-items: center;
+  margin: 0 8px 8px 0;
+  padding: 8px 12px;
+  background: #f2f2f2;
+  border-radius: $borderRadius;
+  transition: background .35s, color .35s;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &--selected {
+    background: #303030;
+    color: #fff;
+  }
+}
+
+.projectFilters__input {
+  margin: 0;
+}
+
+.projectFilters__label {
+  @include label;
+  margin: 0 0 0 8px;
+}
