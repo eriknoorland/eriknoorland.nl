@@ -101,6 +101,7 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
   };
 
   const projectFilters = projects
+    .filter(({ category }) => !!category)
     .reduce(extractProjectCategories, [])
     .sort((a, b) => a.localeCompare(b));
 
