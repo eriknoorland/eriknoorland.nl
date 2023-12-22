@@ -11,18 +11,8 @@
   margin: 0 0 32px 0;
 }
 
-.projects__grid {
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  padding: 0 $sectionPaddingHorizontal;
-
-  @media(min-width: 768px) {
-    padding: 0 #{math.div($sectionPaddingDesktopHorizontal, 2)};
-  }
-}
-
 .projects__gridInner {
-  columns: 12 400px;
+  columns: 3 300px;
   column-gap: $sectionPaddingHorizontal;
 }
 
