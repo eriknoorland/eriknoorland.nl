@@ -1,0 +1,53 @@
+@import "../lib.scss";
+
+.modal {
+  padding: rem(32px);
+  width: calc(100% - 32px);
+  max-width: 600px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 4px hsl(0 0% 0% / 10%);
+
+  &::backdrop {
+    background: hsl(0 0% 0% / 80%);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  font-size: rem(18px);
+  border: none;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 10px;
+    width: 2px;
+    height: 100%;
+    background-color: #303030;
+    transition: background 0.25s;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      background-color: rgba(#303030, 0.7);
+    }
+  }
+}

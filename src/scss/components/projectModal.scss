@@ -1,0 +1,52 @@
+@import "../lib.scss";
+
+.projectModal__title {
+  @include modalHeading;
+  margin: 0 0 rem(8px) 0;
+}
+
+.projectModal__category {
+  @include label;
+  display: inline-block;
+  margin: 0 0 rem(24px) 0;
+  padding: 8px;
+  color: #fff;
+  background: #303030;
+  border-radius: $borderRadius;
+}
+
+.projectModal__body {
+  @include modalBody;
+}
+
+.projectModal__tags {
+  margin: rem(32px) 0 0 0;
+}
+
+.projectModal__tagsLabel {
+  @include label;
+  margin: rem(32px) rem(4px) 0 0;
+}
+
+.projectModal__tagsList {
+  @include label;
+  margin: rem(32px) 0 0 0;
+  opacity: 0.5;
+}
+
+.projectModal__button {
+  @include label;
+  display: inline-block;
+  margin: rem(32px) 0 0 0;
+  padding: 14px 20px;
+  border-radius: 20px;
+  background: #303030;
+  color: #fff;
+  text-decoration: none;
+  transition: background .35s;
+
+  &:hover {
+    background: rgba(#303030, 0.7);
+    color: #fff;
+  }
+}

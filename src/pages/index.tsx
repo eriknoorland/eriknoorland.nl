@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import type { HeadFC, PageProps } from 'gatsby';
 import { Project } from '../types';
+import ProjectModal from '../components/ProjectModal';
 import BaseHeader from '../components/BaseHeader';
 import BaseSection from '../components/BaseSection';
 import BaseContainer from '../components/BaseContainer';
@@ -10,7 +11,6 @@ import PageHero from '../components/PageHero';
 import PageAbout from '../components/PageAbout';
 import PageProjects from '../components/PageProjects';
 import PageContact from '../components/PageContact';
-import shuffleArray from '../utils/shuffleArray';
 import '../scss/base.scss';
 
 interface HomePageProps extends PageProps {
@@ -66,6 +66,9 @@ export const allData = graphql`
               text
               html
             }
+            description {
+              text
+            }
             image {
               alt
               url
@@ -78,6 +81,12 @@ export const allData = graphql`
               url
             }
             category
+            link {
+              url
+            }
+            tags {
+              tag
+            }
           }
         }
       }
@@ -86,6 +95,9 @@ export const allData = graphql`
 `;
 
 const IndexPage: React.FC<HomePageProps> = (props) => {
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   const projects: Array<Project> = props.data.allPrismicProject.edges.map((edge: any) => {
     return {
       ...edge.node.data,
@@ -105,7 +117,14 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
     .reduce(extractProjectCategories, [])
     .sort((a, b) => a.localeCompare(b));
 
-  const shuffledProjects: Array<Project> = shuffleArray(projects);
+  const handleSelectproject = (project: Project) => {
+    setSelectedProject(project);
+    setIsProjectModalOpen(true);
+  };
+  
+  const handleProjectModalClose = () => {
+    setIsProjectModalOpen(false);
+  };
 
   return (
     <main>
@@ -131,8 +150,9 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
       <BaseSection id="projects">
         <BaseContainer>
           <PageProjects
-            projects={shuffledProjects}
+            projects={projects}
             filters={projectFilters}
+            onSelectProject={handleSelectproject}
           />
         </BaseContainer>
       </BaseSection>
@@ -145,6 +165,12 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
           <PageContact data={props.data.prismicContact} />
         </BaseContainer>
       </BaseSection>
+
+      {selectedProject && <ProjectModal
+        isOpen={isProjectModalOpen}
+        data={selectedProject as Project}
+        onClose={handleProjectModalClose}
+      />}
     </main>
   );
 };

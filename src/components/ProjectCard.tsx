@@ -7,6 +7,7 @@ import '../scss/components/projectCard.scss';
 type Props = {
   data: Project;
   className: string;
+  onCustomClick: Function;
 };
 
 export default (props: Props) => {
@@ -25,7 +26,7 @@ export default (props: Props) => {
       });
     };
 
-    const animationObserver = new IntersectionObserver(onIntersectAnimation, { rootMargin: '0px', threshold: .5 });
+    const animationObserver = new IntersectionObserver(onIntersectAnimation, { rootMargin: '0px', threshold: .1 });
 
     if (cardRef.current) {
       animationObserver.observe(cardRef.current);
@@ -36,10 +37,15 @@ export default (props: Props) => {
     };
   }, []);
 
+  const handleClick = () => {
+    props.onCustomClick(props.data);
+  };
+
   return (
     <div
       className={`projectCard ${isInView && 'projectCard--inView'} ${props.className}`}
       ref={cardRef}
+      onClick={handleClick}
     >
       {!props.data.video &&
         <img

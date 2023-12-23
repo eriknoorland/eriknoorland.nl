@@ -45,10 +45,17 @@ export interface ContactpageProps {
   } | null;
 };
 
+export interface ProjectTag {
+  tag: string;
+};
+
 export interface Project {
   title: {
     text: string;
     html: string;
+  };
+  description: {
+    text: string;
   };
   image: {
     alt: string;
@@ -62,4 +69,8 @@ export interface Project {
     url: string;
   };
   category: string;
+  tags: ProjectTag[];
+  link?: {
+    url: string;
+  }
 };

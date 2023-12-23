@@ -9,6 +9,7 @@ import '../scss/components/pageProjects.scss';
 type Props = {
   projects: Array<Project>;
   filters: Array<string>;
+  onSelectProject: Function;
 };
 
 const PageProjects = (props: Props) => {
@@ -38,6 +39,7 @@ const PageProjects = (props: Props) => {
                     <ProjectCard
                       data={project}
                       className="projects__item"
+                      onCustomClick={props.onSelectProject}
                     />
                   </React.Fragment>
                 ))
