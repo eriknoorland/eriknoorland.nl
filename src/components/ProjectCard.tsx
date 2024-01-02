@@ -12,28 +12,39 @@ type Props = {
 
 export default (props: Props) => {
   const [isInView, setIsInView] = useState(false);
+  const [doLoadAssets, setDoLoadAssets] = useState(false);
   const cardRef = useRef(null);
 
   useEffect(() => {
     const onIntersectAnimation = (entries: Array<IntersectionObserverEntry>, observer: IntersectionObserver) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const element = entry.target;
-
           setIsInView(true);
-          observer.unobserve(element);
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const onIntersectLazyLoad = (entries: Array<IntersectionObserverEntry>, observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setDoLoadAssets(true);
+          observer.unobserve(entry.target);
         }
       });
     };
 
     const animationObserver = new IntersectionObserver(onIntersectAnimation, { rootMargin: '0px', threshold: .1 });
+    const lazyLoadObserver = new IntersectionObserver(onIntersectLazyLoad, { rootMargin: '300px 0px 300px 0px' });
 
     if (cardRef.current) {
       animationObserver.observe(cardRef.current);
+      lazyLoadObserver.observe(cardRef.current);
     }
 
     return () => {
       animationObserver.disconnect();
+      lazyLoadObserver.disconnect();
     };
   }, []);
 
@@ -43,11 +54,12 @@ export default (props: Props) => {
 
   return (
     <div
-      className={`projectCard ${isInView && 'projectCard--inView'} ${props.className}`}
+      id={props.data.title.text}
+      className={`projectCard ${isInView ? 'projectCard--inView' : ''} ${props.className}`}
       ref={cardRef}
       onClick={handleClick}
     >
-      {!props.data.video &&
+      {!props.data.video && doLoadAssets &&
         <img
           src={props.data.image.url}
           width={props.data.image.dimensions.width}
@@ -57,7 +69,7 @@ export default (props: Props) => {
         />
       }
 
-      {!!props.data.video && 
+      {!!props.data.video && doLoadAssets &&
         <video
           src={props.data.video.url}
           poster={props.data.image.url}
