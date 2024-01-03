@@ -9,6 +9,7 @@ export default (props: AboutpageProps) => {
 
         <img
           src={`${props.data?.data.image?.url}&w=384`}
+          srcSet={`${props.data?.data.image?.url}&w=384, ${props.data?.data.image?.url}&w=768 2x`}
           width={props.data?.data.image?.dimensions?.width}
           height={props.data?.data.image?.dimensions?.height}
           alt="Picture of Erik Noorland"
