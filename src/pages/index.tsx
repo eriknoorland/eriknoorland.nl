@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import type { HeadFC, PageProps } from 'gatsby';
 import { Project } from '../types';
@@ -11,6 +11,7 @@ import PageHero from '../components/PageHero';
 import PageAbout from '../components/PageAbout';
 import PageProjects from '../components/PageProjects';
 import PageContact from '../components/PageContact';
+import shuffleArray from '../utils/shuffleArray';
 import '../scss/base.scss';
 
 interface HomePageProps extends PageProps {
@@ -94,15 +95,21 @@ export const allData = graphql`
   }
 `;
 
-const IndexPage: React.FC<HomePageProps> = (props) => {
+const IndexPage = ({ data }: HomePageProps) => {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const projects: Array<Project> = props.data.allPrismicProject.edges.map((edge: any) => {
-    return {
-      ...edge.node.data,
-    };
-  });
+  const projects: Array<Project> = useMemo(() => {
+    return data.allPrismicProject.edges.map((edge: any) => {
+      return {
+        ...edge.node.data,
+      };
+    })
+  }, [data]);
+  
+  const shuffledProjects: Array<Project> = useMemo(() => {
+    return shuffleArray(projects);
+  }, [projects]);
 
   const extractProjectCategories = (acc: Array<string>, { category }: Project): Array<string> => {
     if (!acc.includes(category)) {
@@ -134,7 +141,7 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
         id="hero"
         modifiers="hero"
       >
-        <PageHero data={props.data.prismicHomepage} />
+        <PageHero data={data.prismicHomepage} />
         <ScrollHint />
       </BaseSection>
 
@@ -143,14 +150,14 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
         modifiers="background-grey"
       >
         <BaseContainer>
-          <PageAbout data={props.data.prismicAbout} />
+          <PageAbout data={data.prismicAbout} />
         </BaseContainer>
       </BaseSection>
 
       <BaseSection id="projects">
         <BaseContainer>
           <PageProjects
-            projects={projects}
+            projects={shuffledProjects}
             filters={projectFilters}
             onSelectProject={handleSelectproject}
           />
@@ -162,7 +169,7 @@ const IndexPage: React.FC<HomePageProps> = (props) => {
         modifiers="background-grey"
       >
         <BaseContainer>
-          <PageContact data={props.data.prismicContact} />
+          <PageContact data={data.prismicContact} />
         </BaseContainer>
       </BaseSection>
 
