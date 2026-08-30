@@ -14,6 +14,34 @@ const Modal = ({ isOpen, onClose, children }: TModalProps) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
     if (event.key === 'Escape') {
       handleCloseModal();
+      return;
+    }
+
+    if (event.key === 'Tab') {
+      const dialogElement = modalRef.current;
+
+      if (!dialogElement) {
+        return;
+      }
+
+      const focusableElements = dialogElement.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (focusableElements.length === 0) {
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
     }
   };
 
@@ -60,9 +88,10 @@ const Modal = ({ isOpen, onClose, children }: TModalProps) => {
       onClick={handleBackdropClick}
       className="modal"
     >
-      <div
+      <button
         className="modal__close"
         onClick={handleCloseModal}
+        aria-label="Modal close button"
       />
 
       {children}

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Logo from '#components/Logo';
 import './styles.scss';
 
 export default () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const headerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +19,14 @@ export default () => {
     };
   }, []);
 
+  useEffect(() => {
+    const headerElement = headerRef.current;
+
+    if (headerElement) {
+      headerElement.inert = !isVisible;
+    }
+  }, [isVisible]);
+
   const onNavClick = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
@@ -27,14 +36,18 @@ export default () => {
       const targetElement: HTMLElement | null = document.querySelector(targetId);
 
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        targetElement.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       }
     }
   };
 
   return (
-    <header className={`header ${isVisible && 'header--visible'}`}>
-      <Logo className="header__logo" />
+    <header ref={headerRef} className={`header ${isVisible && 'header--visible'}`}>
+      <a href="#hero" onClick={onNavClick}>
+        <Logo className="header__logo" />
+      </a>
   
       <nav className="header__nav">
         <a
