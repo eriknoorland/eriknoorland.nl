@@ -20,6 +20,26 @@ const Modal = (props: TModalProps) => {
     }
   };
 
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDialogElement>) => {
+    const dialogElement = modalRef.current;
+
+    if (!dialogElement) {
+      return;
+    }
+
+    const rect = dialogElement.getBoundingClientRect();
+    const isInDialog = (
+      rect.top <= event.clientY &&
+      event.clientY <= rect.top + rect.height &&
+      rect.left <= event.clientX &&
+      event.clientX <= rect.left + rect.width
+    );
+
+    if (!isInDialog) {
+      handleCloseModal();
+    }
+  };
+
   useEffect(() => {
     setModalOpen(props.isOpen);
   }, [props.isOpen]);
@@ -40,6 +60,7 @@ const Modal = (props: TModalProps) => {
     <dialog
       ref={modalRef}
       onKeyDown={handleKeyDown}
+      onClick={handleBackdropClick}
       className="modal"
     >
       <div
