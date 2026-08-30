@@ -3,7 +3,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
-  font-display: fallback;
+  font-display: swap;
   src: url('/fonts/roboto-v20-latin/roboto-v20-latin-300.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/roboto-v20-latin/roboto-v20-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -17,7 +17,7 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-display: fallback;
+  font-display: swap;
   src: url('/fonts/roboto-v20-latin/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/roboto-v20-latin/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
