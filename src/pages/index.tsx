@@ -1,18 +1,18 @@
 import React, { useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import type { HeadFC, PageProps } from 'gatsby';
-import { Project } from '../types';
-import ProjectModal from '../components/ProjectModal';
-import BaseHeader from '../components/BaseHeader';
-import BaseSection from '../components/BaseSection';
-import BaseContainer from '../components/BaseContainer';
-import ScrollHint from '../components/ScrollHint';
-import PageHero from '../components/PageHero';
-import PageAbout from '../components/PageAbout';
-import PageProjects from '../components/PageProjects';
-import PageContact from '../components/PageContact';
-import shuffleArray from '../utils/shuffleArray';
-import '../scss/base.scss';
+import type { IProject } from '../interfaces';
+import ProjectDetailModal from '#components/ProjectDetailModal';
+import Header from '#components/Header';
+import Section from '#components/Section';
+import Container from '#components/Container';
+import ScrollHint from '#components/ScrollHint';
+import PageHero from '#components/PageHero';
+import PageAbout from '#components/PageAbout';
+import PageProjects from '#components/PageProjects';
+import PageContact from '#components/PageContact';
+import shuffleArray from '#utils/shuffleArray';
+import '#scss/base.scss';
 
 interface HomePageProps extends PageProps {
   data: Queries.allDataQuery;
@@ -97,21 +97,21 @@ export const allData = graphql`
 
 const IndexPage = ({ data }: HomePageProps) => {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
 
-  const projects: Array<Project> = useMemo(() => {
+  const projects: Array<IProject> = useMemo(() => {
     return data.allPrismicProject.edges.map((edge: any) => {
       return {
         ...edge.node.data,
       };
     })
   }, [data]);
-  
-  const shuffledProjects: Array<Project> = useMemo(() => {
+
+  const shuffledProjects: Array<IProject> = useMemo(() => {
     return shuffleArray(projects);
   }, [projects]);
 
-  const extractProjectCategories = (acc: Array<string>, { category }: Project): Array<string> => {
+  const extractProjectCategories = (acc: Array<string>, { category }: IProject): Array<string> => {
     if (!acc.includes(category)) {
       acc.push(category);
     }
@@ -124,7 +124,7 @@ const IndexPage = ({ data }: HomePageProps) => {
     .reduce(extractProjectCategories, [])
     .sort((a, b) => a.localeCompare(b));
 
-  const handleSelectproject = (project: Project) => {
+  const handleSelectproject = (project: IProject) => {
     setSelectedProject(project);
     setIsProjectModalOpen(true);
   };
@@ -135,47 +135,47 @@ const IndexPage = ({ data }: HomePageProps) => {
 
   return (
     <main>
-      <BaseHeader />
+      <Header />
 
-      <BaseSection
+      <Section
         id="hero"
         modifiers="hero"
       >
         <PageHero data={data.prismicHomepage} />
         <ScrollHint />
-      </BaseSection>
+      </Section>
 
-      <BaseSection
+      <Section
         id="about-me"
         modifiers="background-grey"
       >
-        <BaseContainer>
+        <Container>
           <PageAbout data={data.prismicAbout} />
-        </BaseContainer>
-      </BaseSection>
+        </Container>
+      </Section>
 
-      <BaseSection id="projects">
-        <BaseContainer>
+      <Section id="projects">
+        <Container>
           <PageProjects
             projects={shuffledProjects}
             filters={projectFilters}
             onSelectProject={handleSelectproject}
           />
-        </BaseContainer>
-      </BaseSection>
+        </Container>
+      </Section>
 
-      <BaseSection
+      <Section
         id="contact"
         modifiers="background-grey"
       >
-        <BaseContainer>
+        <Container>
           <PageContact data={data.prismicContact} />
-        </BaseContainer>
-      </BaseSection>
+        </Container>
+      </Section>
 
-      {selectedProject && <ProjectModal
+      {selectedProject && <ProjectDetailModal
         isOpen={isProjectModalOpen}
-        data={selectedProject as Project}
+        data={selectedProject}
         onClose={handleProjectModalClose}
       />}
     </main>
@@ -188,10 +188,12 @@ export const Head: HeadFC = () => <>
   <html lang="en" />
   <title>Erik Noorland - Frontend Developer</title>
   <meta name="description" content="The portfolio of a passionate frontend developer" />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v20-latin/roboto-v20-latin-300.woff2" crossOrigin="anonymous" />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v20-latin/roboto-v20-latin-regular.woff2" crossOrigin="anonymous" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="/site.webmanifest" fetchpriority="low" />
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
   <meta name="msapplication-TileColor" content="#ffffff" />
   <meta name="theme-color" content="#ffffff"></meta>

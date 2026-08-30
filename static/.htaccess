@@ -1,0 +1,46 @@
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+
+# Strato's default MIME map doesn't know this extension, which independently
+# breaks the "ExpiresByType application/manifest+json" rule below too.
+AddType application/manifest+json .webmanifest
+
+# Cache lifetimes for static assets.
+# Gatsby fingerprints its JS/CSS build output (the filename changes whenever
+# the content does), so those are safe to cache for a full year as immutable.
+# Fonts aren't fingerprinted, but change so rarely that a long cache is still
+# the right tradeoff.
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+
+  ExpiresByType application/manifest+json "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType application/xml "access plus 1 year"
+  ExpiresByType text/xml "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # "always" forces this to win regardless of any other Cache-Control
+  # Strato's own server-level config may set for these content types.
+
+  # Content-hashed bundles: browsers can skip revalidation entirely.
+  <FilesMatch "\.(js|css)$">
+    Header always set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Fonts, manifest and favicons: long cache, but not asserted as immutable
+  # since these filenames never change even if the file content ever did.
+  <FilesMatch "\.(woff2?|ttf|eot|svg|webmanifest|png|ico|xml)$">
+    Header always set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+</IfModule>

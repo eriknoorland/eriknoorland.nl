@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Link, HeadFC, PageProps } from 'gatsby';
-import '../scss/404.scss';
+import { Link } from 'gatsby';
+import type { HeadFC, PageProps } from 'gatsby';
+import '#scss/404.scss';
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
@@ -11,9 +12,9 @@ const NotFoundPage: React.FC<PageProps> = () => {
         </h1>
 
         <p className="page404__body">
-          Sorry 😔, we kunnen de door jou opgevraagde pagina niet vinden.<br /><br />
+          Sorry 😔, we can't find the requested page<br /><br />
           
-          Klik <Link to="/">hier</Link> om terug te gaan naar de homepagina.
+          Click <Link to="/">here</Link> to go back.
         </p>
       </div>
     </main>
@@ -22,4 +23,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head: HeadFC = () => <>
+  <html lang="en" />
+  <title>Not found</title>
+</>
