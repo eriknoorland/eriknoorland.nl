@@ -11,9 +11,9 @@ const PageProjects = ({ projects, filters, onSelectProject }: TProps) => {
 
   return (
     <div className="projects">
-      <h3 className="projects__title">
+      <h2 className="projects__title">
         Projects
-      </h3>
+      </h2>
 
       <Filters
         data={filters}

@@ -47,12 +47,13 @@ export default ({ data, className, onCustomClick }: TProps) => {
   };
 
   return (
-    <div
+    <button
       id={data.title.text}
       className={`projectCard ${isInView ? 'projectCard--inView' : ''} ${className}`}
       ref={cardRef}
       onClick={handleClick}
-    >
+      aria-label={data.title.text}
+      >
       {!data.video && doLoadAssets &&
         <img
           src={data.image.url}
@@ -78,6 +79,6 @@ export default ({ data, className, onCustomClick }: TProps) => {
       <div className="project__category">
         {data.category}
       </div>
-    </div>
+    </button>
   );
 };

@@ -60,9 +60,10 @@ const Modal = ({ isOpen, onClose, children }: TModalProps) => {
       onClick={handleBackdropClick}
       className="modal"
     >
-      <div
+      <button
         className="modal__close"
         onClick={handleCloseModal}
+        aria-label="Modal close button"
       />
 
       {children}
