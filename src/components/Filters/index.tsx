@@ -3,10 +3,10 @@ import type { TProps } from './interfaces';
 
 import './styles.scss';
 
-export default (props: TProps) => {
+export default ({ data, selected, onChangeHandler, className }: TProps) => {
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const value: string = event.currentTarget.value;
-    const filters: Array<string> = [...props.selected];
+    const filters: Array<string> = [...selected];
 
     if (!filters.includes(value)) {
       filters.push(value);
@@ -16,15 +16,15 @@ export default (props: TProps) => {
       filters.splice(filterIndex, 1);
     }
 
-    props.onChangeHandler(filters);
+    onChangeHandler(filters);
   };
 
   return (
-    <div className={`projectFilters ${props.className}`}>
-      {props.data.map((filter, index) => {
+    <div className={`projectFilters ${className}`}>
+      {data.map((filter, index) => {
         return <label
           key={index}
-          className={`projectFilters__item ${props.selected.includes(filter) && 'projectFilters__item--selected'}`}
+          className={`projectFilters__item ${selected.includes(filter) && 'projectFilters__item--selected'}`}
         >
           <input
             type="checkbox"

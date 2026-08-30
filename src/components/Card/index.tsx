@@ -4,7 +4,7 @@ import type { TProps } from './interfaces';
 
 import './styles.scss';
 
-export default (props: TProps) => {
+export default ({ data, className, onCustomClick }: TProps) => {
   const [isInView, setIsInView] = useState(false);
   const [doLoadAssets, setDoLoadAssets] = useState(false);
   const cardRef = useRef(null);
@@ -43,30 +43,30 @@ export default (props: TProps) => {
   }, []);
 
   const handleClick = () => {
-    props.onCustomClick(props.data);
+    onCustomClick(data);
   };
 
   return (
     <div
-      id={props.data.title.text}
-      className={`projectCard ${isInView ? 'projectCard--inView' : ''} ${props.className}`}
+      id={data.title.text}
+      className={`projectCard ${isInView ? 'projectCard--inView' : ''} ${className}`}
       ref={cardRef}
       onClick={handleClick}
     >
-      {!props.data.video && doLoadAssets &&
+      {!data.video && doLoadAssets &&
         <img
-          src={props.data.image.url}
-          width={props.data.image.dimensions.width}
-          height={props.data.image.dimensions.height}
-          alt={props.data.title.text}
+          src={data.image.url}
+          width={data.image.dimensions.width}
+          height={data.image.dimensions.height}
+          alt={data.title.text}
           className="projectCard__image"
         />
       }
 
-      {!!props.data.video && doLoadAssets &&
+      {!!data.video && doLoadAssets &&
         <video
-          src={props.data.video.url}
-          poster={props.data.image.url}
+          src={data.video.url}
+          poster={data.image.url}
           className="projectCard__video"
           muted
           autoPlay
@@ -76,7 +76,7 @@ export default (props: TProps) => {
       }
 
       <div className="project__category">
-        {props.data.category}
+        {data.category}
       </div>
     </div>
   );

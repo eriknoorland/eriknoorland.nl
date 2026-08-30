@@ -2,16 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import type { TModalProps } from './interfaces';
 import './styles.scss';
 
-const Modal = (props: TModalProps) => {
-  const [isModalOpen, setModalOpen] = useState(props.isOpen);
+const Modal = ({ isOpen, onClose, children }: TModalProps) => {
+  const [isModalOpen, setModalOpen] = useState(isOpen);
   const modalRef = useRef<HTMLDialogElement | null>(null);
 
   const handleCloseModal = () => {
-    if (props.onClose) {
-      props.onClose();
-    }
-
     setModalOpen(false);
+    onClose?.();
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
@@ -41,8 +38,8 @@ const Modal = (props: TModalProps) => {
   };
 
   useEffect(() => {
-    setModalOpen(props.isOpen);
-  }, [props.isOpen]);
+    setModalOpen(isOpen);
+  }, [isOpen]);
 
   useEffect(() => {
     const modalElement = modalRef.current;
@@ -68,7 +65,7 @@ const Modal = (props: TModalProps) => {
         onClick={handleCloseModal}
       />
 
-      {props.children}
+      {children}
     </dialog>
   );
 };

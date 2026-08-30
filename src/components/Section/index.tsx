@@ -3,13 +3,13 @@ import modifiers from '#utils/modifiers';
 import type { TProps } from './interfaces';
 import './styles.scss';
 
-const Section = (props: TProps) => {
+const Section = ({ id, modifiers: sectionModifiers, children }: TProps) => {
   return (
     <section
-      id={props.id}
-      className={modifiers('section', props.modifiers)}
+      id={id}
+      className={modifiers('section', sectionModifiers)}
     >
-      {props.children}
+      {children}
     </section>
   );
 }

@@ -2,10 +2,10 @@ import * as React from 'react';
 import type { TProps } from './interfaces';
 import './styles.scss';
 
-const Container = (props: TProps) => {
+const Container = ({ children }: TProps) => {
   return (
     <div className="container">
-      {props.children}
+      {children}
     </div>
   );
 }
