@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { Project } from '../types';
+import { Project } from '../../types';
 
-import '../scss/components/projectCard.scss';
+import './styles.scss';
 
 type Props = {
   data: Project;

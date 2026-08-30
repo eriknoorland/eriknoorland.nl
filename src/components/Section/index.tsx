@@ -1,6 +1,6 @@
 import * as React from 'react';
-import modifiers from '../utils/modifiers';
-import '../scss/components/baseSection.scss';
+import modifiers from '#utils/modifiers';
+import './styles.scss';
 
 type Props = {
   children: any;
@@ -8,7 +8,7 @@ type Props = {
   modifiers?: 'hero' | 'background-grey';
 };
 
-const BaseSection = (props: Props) => {
+const Section = (props: Props) => {
   return (
     <section
       id={props.id}
@@ -19,4 +19,4 @@ const BaseSection = (props: Props) => {
   );
 }
 
-export default BaseSection;
+export default Section;

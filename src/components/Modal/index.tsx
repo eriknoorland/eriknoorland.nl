@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../scss/components/baseModal.scss';
+import './styles.scss';
 
-export interface BaseModalProps {
+export interface ModalProps {
   isOpen: boolean;
   onClose?: () => void;
   children?: React.ReactNode;
 };
 
-const BaseModal = (props: BaseModalProps) => {
+const Modal = (props: ModalProps) => {
   const [isModalOpen, setModalOpen] = useState(props.isOpen);
   const modalRef = useRef<HTMLDialogElement | null>(null);
 
@@ -57,4 +57,4 @@ const BaseModal = (props: BaseModalProps) => {
   );
 };
 
-export default BaseModal;
+export default Modal;

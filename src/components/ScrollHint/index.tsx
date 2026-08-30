@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import '../scss/components/scrollHint.scss';
+import './styles.scss';
 
 export default () => {
   const [isVisible, setIsVisible] = useState(false);

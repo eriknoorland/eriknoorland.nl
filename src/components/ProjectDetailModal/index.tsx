@@ -1,13 +1,13 @@
 import * as React from 'react';
-import BaseModal, { BaseModalProps } from './BaseModal';
-import { Project } from '../types';
-import '../scss/components/projectModal.scss';
+import Modal, { ModalProps } from '#components/Modal';
+import { Project } from '../../types';
+import './styles.scss';
 
-interface ProjectModalProps extends BaseModalProps {
+interface ProjectDetailModalProps extends ModalProps {
   data: Project;
 };
 
-const ProjectModal = (props: ProjectModalProps) => {
+const ProjectDetailModal = (props: ProjectDetailModalProps) => {
   const tags = props.data.tags
     .filter(tag => !!tag.tag)
     .reduce((acc: string, tag, index, array) => {
@@ -15,7 +15,7 @@ const ProjectModal = (props: ProjectModalProps) => {
     }, '');
 
   return (
-    <BaseModal
+    <Modal
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
@@ -51,8 +51,8 @@ const ProjectModal = (props: ProjectModalProps) => {
           View project
         </a>}
       </div>
-    </BaseModal>
+    </Modal>
   );
 };
 
-export default ProjectModal;
+export default ProjectDetailModal;

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { HomepageProps } from '../types';
-import TheLogo from './TheLogo';
-import '../scss/components/pageHero.scss';
+import { HomepageProps } from '../../types';
+import Logo from '#components/Logo';
+import './styles.scss';
 
 const PageHero = (props: HomepageProps) => {
   return (
     <div className="hero">
       <div className="hero__inner">
         <div className="hero__logoWrapper">
-          <TheLogo />
+          <Logo />
         </div>
 
         <div className="hero__content">

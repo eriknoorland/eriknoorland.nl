@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { ContactpageProps } from '../types';
-import '../scss/components/pageContact.scss';
+import { ContactpageProps } from '../../types';
+import './styles.scss';
 
 export default (props: ContactpageProps) => {
   return (

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import TheLogo from './TheLogo';
-import '../scss/components/baseHeader.scss';
+import Logo from '#components/Logo';
+import './styles.scss';
 
 export default () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -34,7 +34,7 @@ export default () => {
 
   return (
     <header className={`header ${isVisible && 'header--visible'}`}>
-      <TheLogo className="header__logo" />
+      <Logo className="header__logo" />
   
       <nav className="header__nav">
         <a

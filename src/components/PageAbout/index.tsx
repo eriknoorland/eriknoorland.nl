@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { AboutpageProps } from '../types';
-import '../scss/components/pageAbout.scss';
+import { AboutpageProps } from '../../types';
+import './styles.scss';
 
 export default (props: AboutpageProps) => {
   return (

@@ -1,5 +1,5 @@
 @use 'sass:math';
-@import "../lib.scss";
+@import "../../scss/lib.scss";
 
 .projects__title {
   @include heading-2;

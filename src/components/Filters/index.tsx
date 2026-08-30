@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import '../scss/components/projectFilters.scss';
+import './styles.scss';
 
 type Props = {
   data: Array<string>;

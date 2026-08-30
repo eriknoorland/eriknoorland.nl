@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
-import ProjectFilters from './ProjectFilters';
-import ProjectCard from './ProjectCard';
-import { Project } from '../types';
+import Filters from '#components/Filters';
+import Card from '#components/Card';
+import { Project } from '../../types';
 
-import '../scss/components/pageProjects.scss';
+import './styles.scss';
 
 type Props = {
   projects: Array<Project>;
@@ -21,7 +21,7 @@ const PageProjects = (props: Props) => {
         Projects
       </h3>
 
-      <ProjectFilters
+      <Filters
         data={props.filters}
         selected={selectedFilters}
         onChangeHandler={setSelectedFilters}
@@ -36,7 +36,7 @@ const PageProjects = (props: Props) => {
                 .filter(project => !selectedFilters.length || selectedFilters.includes(project.category))
                 .map((project, index) => (
                   <React.Fragment key={index}>
-                    <ProjectCard
+                    <Card
                       data={project}
                       className="projects__item"
                       onCustomClick={props.onSelectProject}

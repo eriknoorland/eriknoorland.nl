@@ -2,17 +2,17 @@ import React, { useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import type { HeadFC, PageProps } from 'gatsby';
 import { Project } from '../types';
-import ProjectModal from '../components/ProjectModal';
-import BaseHeader from '../components/BaseHeader';
-import BaseSection from '../components/BaseSection';
-import BaseContainer from '../components/BaseContainer';
-import ScrollHint from '../components/ScrollHint';
-import PageHero from '../components/PageHero';
-import PageAbout from '../components/PageAbout';
-import PageProjects from '../components/PageProjects';
-import PageContact from '../components/PageContact';
-import shuffleArray from '../utils/shuffleArray';
-import '../scss/base.scss';
+import ProjectDetailModal from '#components/ProjectDetailModal';
+import Header from '#components/Header';
+import Section from '#components/Section';
+import Container from '#components/Container';
+import ScrollHint from '#components/ScrollHint';
+import PageHero from '#components/PageHero';
+import PageAbout from '#components/PageAbout';
+import PageProjects from '#components/PageProjects';
+import PageContact from '#components/PageContact';
+import shuffleArray from '#utils/shuffleArray';
+import '#scss/base.scss';
 
 interface HomePageProps extends PageProps {
   data: Queries.allDataQuery;
@@ -135,45 +135,45 @@ const IndexPage = ({ data }: HomePageProps) => {
 
   return (
     <main>
-      <BaseHeader />
+      <Header />
 
-      <BaseSection
+      <Section
         id="hero"
         modifiers="hero"
       >
         <PageHero data={data.prismicHomepage} />
         <ScrollHint />
-      </BaseSection>
+      </Section>
 
-      <BaseSection
+      <Section
         id="about-me"
         modifiers="background-grey"
       >
-        <BaseContainer>
+        <Container>
           <PageAbout data={data.prismicAbout} />
-        </BaseContainer>
-      </BaseSection>
+        </Container>
+      </Section>
 
-      <BaseSection id="projects">
-        <BaseContainer>
+      <Section id="projects">
+        <Container>
           <PageProjects
             projects={shuffledProjects}
             filters={projectFilters}
             onSelectProject={handleSelectproject}
           />
-        </BaseContainer>
-      </BaseSection>
+        </Container>
+      </Section>
 
-      <BaseSection
+      <Section
         id="contact"
         modifiers="background-grey"
       >
-        <BaseContainer>
+        <Container>
           <PageContact data={data.prismicContact} />
-        </BaseContainer>
-      </BaseSection>
+        </Container>
+      </Section>
 
-      {selectedProject && <ProjectModal
+      {selectedProject && <ProjectDetailModal
         isOpen={isProjectModalOpen}
         data={selectedProject as Project}
         onClose={handleProjectModalClose}
