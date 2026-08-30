@@ -1,15 +1,9 @@
 import * as React from 'react';
+import type { TProps } from './interfaces';
 
 import './styles.scss';
 
-type Props = {
-  data: Array<string>;
-  selected: Array<string>;
-  onChangeHandler: Function;
-  className: string;
-};
-
-export default (props: Props) => {
+export default (props: TProps) => {
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
     const value: string = event.currentTarget.value;
     const filters: Array<string> = [...props.selected];

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import type { HeadFC, PageProps } from 'gatsby';
-import { Project } from '../types';
+import type { IProject } from '../interfaces';
 import ProjectDetailModal from '#components/ProjectDetailModal';
 import Header from '#components/Header';
 import Section from '#components/Section';
@@ -97,21 +97,21 @@ export const allData = graphql`
 
 const IndexPage = ({ data }: HomePageProps) => {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
 
-  const projects: Array<Project> = useMemo(() => {
+  const projects: Array<IProject> = useMemo(() => {
     return data.allPrismicProject.edges.map((edge: any) => {
       return {
         ...edge.node.data,
       };
     })
   }, [data]);
-  
-  const shuffledProjects: Array<Project> = useMemo(() => {
+
+  const shuffledProjects: Array<IProject> = useMemo(() => {
     return shuffleArray(projects);
   }, [projects]);
 
-  const extractProjectCategories = (acc: Array<string>, { category }: Project): Array<string> => {
+  const extractProjectCategories = (acc: Array<string>, { category }: IProject): Array<string> => {
     if (!acc.includes(category)) {
       acc.push(category);
     }
@@ -124,7 +124,7 @@ const IndexPage = ({ data }: HomePageProps) => {
     .reduce(extractProjectCategories, [])
     .sort((a, b) => a.localeCompare(b));
 
-  const handleSelectproject = (project: Project) => {
+  const handleSelectproject = (project: IProject) => {
     setSelectedProject(project);
     setIsProjectModalOpen(true);
   };
@@ -175,7 +175,7 @@ const IndexPage = ({ data }: HomePageProps) => {
 
       {selectedProject && <ProjectDetailModal
         isOpen={isProjectModalOpen}
-        data={selectedProject as Project}
+        data={selectedProject}
         onClose={handleProjectModalClose}
       />}
     </main>

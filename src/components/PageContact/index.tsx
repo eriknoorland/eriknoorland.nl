@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { ContactpageProps } from '../../types';
+import type { IContactpageProps } from '../../interfaces';
 import './styles.scss';
 
-export default (props: ContactpageProps) => {
+export default (props: IContactpageProps) => {
   return (
     <div className="contact">
       <h2 className="contact__title">

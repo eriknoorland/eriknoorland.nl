@@ -1,13 +1,9 @@
 import * as React from 'react';
-import Modal, { ModalProps } from '#components/Modal';
-import { Project } from '../../types';
+import Modal from '#components/Modal';
+import type { TProjectDetailModalProps } from './interfaces';
 import './styles.scss';
 
-interface ProjectDetailModalProps extends ModalProps {
-  data: Project;
-};
-
-const ProjectDetailModal = (props: ProjectDetailModalProps) => {
+const ProjectDetailModal = (props: TProjectDetailModalProps) => {
   const tags = props.data.tags
     .filter(tag => !!tag.tag)
     .reduce((acc: string, tag, index, array) => {

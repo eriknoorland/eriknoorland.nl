@@ -1,4 +1,4 @@
-export interface HomepageProps {
+export interface IHomepageProps {
   readonly data: {
     readonly data: {
       readonly title: {
@@ -11,7 +11,7 @@ export interface HomepageProps {
   } | null;
 };
 
-export interface AboutpageProps {
+export interface IAboutpageProps {
   readonly data: {
     readonly data: {
       readonly title: {
@@ -32,7 +32,7 @@ export interface AboutpageProps {
   } | null;
 };
 
-export interface ContactpageProps {
+export interface IContactpageProps {
   readonly data: {
     readonly data: {
       readonly title: {
@@ -45,11 +45,11 @@ export interface ContactpageProps {
   } | null;
 };
 
-export interface ProjectTag {
+export interface IProjectTag {
   tag: string;
 };
 
-export interface Project {
+export interface IProject {
   title: {
     text: string;
     html: string;
@@ -69,7 +69,7 @@ export interface Project {
     url: string;
   };
   category: string;
-  tags: ProjectTag[];
+  tags: IProjectTag[];
   link?: {
     url: string;
   }

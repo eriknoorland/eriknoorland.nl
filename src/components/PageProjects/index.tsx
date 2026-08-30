@@ -2,17 +2,11 @@ import * as React from 'react';
 import { useState } from 'react';
 import Filters from '#components/Filters';
 import Card from '#components/Card';
-import { Project } from '../../types';
+import type { TProps } from './interfaces';
 
 import './styles.scss';
 
-type Props = {
-  projects: Array<Project>;
-  filters: Array<string>;
-  onSelectProject: Function;
-};
-
-const PageProjects = (props: Props) => {
+const PageProjects = (props: TProps) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   return (

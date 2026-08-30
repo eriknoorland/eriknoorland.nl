@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { HomepageProps } from '../../types';
+import type { IHomepageProps } from '../../interfaces';
 import Logo from '#components/Logo';
 import './styles.scss';
 
-const PageHero = (props: HomepageProps) => {
+const PageHero = (props: IHomepageProps) => {
   return (
     <div className="hero">
       <div className="hero__inner">

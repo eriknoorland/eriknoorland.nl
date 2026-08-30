@@ -1,14 +1,9 @@
 import * as React from 'react';
 import modifiers from '#utils/modifiers';
+import type { TProps } from './interfaces';
 import './styles.scss';
 
-type Props = {
-  children: any;
-  id: string;
-  modifiers?: 'hero' | 'background-grey';
-};
-
-const Section = (props: Props) => {
+const Section = (props: TProps) => {
   return (
     <section
       id={props.id}

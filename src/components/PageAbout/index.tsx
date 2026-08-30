@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { AboutpageProps } from '../../types';
+import type { IAboutpageProps } from '../../interfaces';
 import './styles.scss';
 
-export default (props: AboutpageProps) => {
+export default (props: IAboutpageProps) => {
   return (
     <div className="about">
       <div className="about__imageWrapper">

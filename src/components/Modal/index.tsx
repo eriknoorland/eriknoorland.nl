@@ -1,13 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import type { TModalProps } from './interfaces';
 import './styles.scss';
 
-export interface ModalProps {
-  isOpen: boolean;
-  onClose?: () => void;
-  children?: React.ReactNode;
-};
-
-const Modal = (props: ModalProps) => {
+const Modal = (props: TModalProps) => {
   const [isModalOpen, setModalOpen] = useState(props.isOpen);
   const modalRef = useRef<HTMLDialogElement | null>(null);
 

@@ -1,7 +1,8 @@
 import * as React from 'react';
+import type { TProps } from './interfaces';
 import './styles.scss';
 
-const Container = (props: { children: any }) => {
+const Container = (props: TProps) => {
   return (
     <div className="container">
       {props.children}

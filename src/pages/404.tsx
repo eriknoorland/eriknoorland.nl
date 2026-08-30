@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Link, HeadFC, PageProps } from 'gatsby';
+import { Link } from 'gatsby';
+import type { HeadFC, PageProps } from 'gatsby';
 import '#scss/404.scss';
 
 const NotFoundPage: React.FC<PageProps> = () => {

@@ -1,16 +1,10 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { Project } from '../../types';
+import type { TProps } from './interfaces';
 
 import './styles.scss';
 
-type Props = {
-  data: Project;
-  className: string;
-  onCustomClick: Function;
-};
-
-export default (props: Props) => {
+export default (props: TProps) => {
   const [isInView, setIsInView] = useState(false);
   const [doLoadAssets, setDoLoadAssets] = useState(false);
   const cardRef = useRef(null);
