@@ -45,7 +45,7 @@ export default () => {
 
   return (
     <header ref={headerRef} className={`header ${isVisible && 'header--visible'}`}>
-      <a href="#hero" onClick={onNavClick}>
+      <a href="#hero" onClick={onNavClick} aria-label="Erik Noorland">
         <Logo className="header__logo" />
       </a>
   
