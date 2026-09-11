@@ -14,7 +14,7 @@ const DOT_RADIUS = 1;
 const REPEL_RADIUS = 160;
 const MAX_PUSH = 40;
 const EASE = 0.12;
-const DOT_COLOR = '#ccc';
+const DOT_COLOR = '#d4d4d4';
 const MIN_OPACITY = 0.15;
 
 export default () => {
