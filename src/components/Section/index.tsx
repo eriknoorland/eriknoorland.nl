@@ -1,13 +1,17 @@
 import * as React from 'react';
-import modifiers from '#utils/modifiers';
 import type { TProps } from './interfaces';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
-const Section = ({ id, modifiers: sectionModifiers, children }: TProps) => {
+const MODIFIER_CLASSES: Record<NonNullable<TProps['modifiers']>, string> = {
+  hero: styles.hero,
+  'background-grey': styles.backgroundGrey,
+};
+
+const Section = ({ id, modifiers, children }: TProps) => {
   return (
     <section
       id={id}
-      className={modifiers('section', sectionModifiers)}
+      className={`${styles.section} ${modifiers ? MODIFIER_CLASSES[modifiers] : ''}`}
     >
       {children}
     </section>

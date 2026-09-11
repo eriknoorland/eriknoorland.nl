@@ -1,0 +1,28 @@
+@use '#scss/lib' as lib;
+
+.section {
+  position: relative;
+  padding: lib.$sectionPaddingVertical lib.$sectionPaddingHorizontal;
+
+  @media (min-width: 768px) {
+    padding: lib.$sectionPaddingDesktopVertical lib.$sectionPaddingDesktopHorizontal;
+  }
+}
+
+.hero {
+  --bg-spacing: 12px;
+  --bg-size: 1px;
+
+  padding: 0 lib.$sectionPaddingHorizontal;
+  height: 100vh;
+  background: linear-gradient(90deg, #fff calc(var(--bg-spacing) - var(--bg-size)), transparent 1%) center, linear-gradient(#fff calc(var(--bg-spacing) - var(--bg-size)), transparent 1%) center, #ccc;
+  background-size: var(--bg-spacing) var(--bg-spacing);
+
+  @media (min-width: 768px) {
+    padding: 0 lib.$sectionPaddingDesktopHorizontal;
+  }
+}
+
+.backgroundGrey {
+  background: #f2f2f2;
+}

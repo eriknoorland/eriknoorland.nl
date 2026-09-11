@@ -1,0 +1,19 @@
+@use '#scss/lib' as lib;
+
+.title {
+  @include lib.heading-2;
+  margin: 0 0 18px 0;
+}
+
+.gridInner {
+  columns: 3 300px;
+  column-gap: lib.$sectionPaddingHorizontal;
+}
+
+.filters {
+  margin: 0 0 32px 0;
+}
+
+.item {
+  margin: 0 0 16px 0;
+}

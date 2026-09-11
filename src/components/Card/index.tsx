@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import type { TProps } from './interfaces';
 
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 export default ({ data, className, onCustomClick }: TProps) => {
   const [isInView, setIsInView] = useState(false);
@@ -49,7 +49,7 @@ export default ({ data, className, onCustomClick }: TProps) => {
   return (
     <button
       id={data.title.text}
-      className={`projectCard ${isInView ? 'projectCard--inView' : ''} ${className}`}
+      className={`${styles.projectCard} ${isInView ? styles.inView : ''} ${className}`}
       ref={cardRef}
       onClick={handleClick}
       aria-label={data.title.text}
@@ -60,7 +60,7 @@ export default ({ data, className, onCustomClick }: TProps) => {
           width={data.image.dimensions.width}
           height={data.image.dimensions.height}
           alt={data.title.text}
-          className="projectCard__image"
+          className={styles.image}
         />
       }
 
@@ -68,7 +68,7 @@ export default ({ data, className, onCustomClick }: TProps) => {
         <video
           src={data.video.url}
           poster={data.image.url}
-          className="projectCard__video"
+          className={styles.video}
           muted
           autoPlay
           playsInline
@@ -76,7 +76,7 @@ export default ({ data, className, onCustomClick }: TProps) => {
         />
       }
 
-      <div className="project__category">
+      <div className={styles.category}>
         {data.category}
       </div>
     </button>

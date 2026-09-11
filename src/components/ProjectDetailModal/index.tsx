@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Modal from '#components/Modal';
 import type { TProjectDetailModalProps } from './interfaces';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const ProjectDetailModal = ({ data, isOpen, onClose }: TProjectDetailModalProps) => {
   const tags = data.tags
@@ -15,25 +15,25 @@ const ProjectDetailModal = ({ data, isOpen, onClose }: TProjectDetailModalProps)
       isOpen={isOpen}
       onClose={onClose}
     >
-      <div className="projectModal">
-        <h4 className="projectModal__title">
+      <div>
+        <h4 className={styles.title}>
           {data.title.text}
         </h4>
 
-        <div className="projectModal__category">
+        <div className={styles.category}>
           {data.category}
         </div>
 
-        <p className="projectModal__body">
+        <p className={styles.body}>
           {data.description.text}
         </p>
 
-        {!!tags && <div className="projectModal__tags">
-          <span className="projectModal__tagsLabel">
+        {!!tags && <div className={styles.tags}>
+          <span className={styles.tagsLabel}>
             Tags:
           </span>
 
-          <span className="projectModal__tagsList">
+          <span className={styles.tagsList}>
             {tags}
           </span>
         </div>}
@@ -42,7 +42,7 @@ const ProjectDetailModal = ({ data, isOpen, onClose }: TProjectDetailModalProps)
           href={data.link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="projectModal__button"
+          className={styles.button}
         >
           View project
         </a>}

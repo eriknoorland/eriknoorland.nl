@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Logo from '#components/Logo';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 export default () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -44,31 +44,31 @@ export default () => {
   };
 
   return (
-    <header ref={headerRef} className={`header ${isVisible && 'header--visible'}`}>
+    <header ref={headerRef} className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
       <a href="#hero" onClick={onNavClick} aria-label="Erik Noorland">
-        <Logo className="header__logo" />
+        <Logo className={styles.logo} />
       </a>
-  
-      <nav className="header__nav">
+
+      <nav className={styles.nav}>
         <a
           href="#about-me"
-          className="header__nav__link"
+          className={styles.navLink}
           onClick={onNavClick}
         >
           About me
         </a>
-  
+
         <a
           href="#projects"
-          className="header__nav__link"
+          className={styles.navLink}
           onClick={onNavClick}
         >
           Projects
         </a>
-  
+
         <a
           href="#contact"
-          className="header__nav__link"
+          className={styles.navLink}
           onClick={onNavClick}
         >
           Contact

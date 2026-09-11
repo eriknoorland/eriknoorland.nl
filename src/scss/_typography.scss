@@ -1,57 +1,60 @@
+@use 'mixins';
+@use 'variables';
+
 @mixin heading-1 {
-  @include fontSize(36px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(36px);
+  font-family: variables.$fontFamily;
   font-weight: 400;
   line-height: 1.4;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(56px);
+    @include mixins.fontSize(56px);
   }
 }
 
 @mixin heading-2 {
-  @include fontSize(32px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(32px);
+  font-family: variables.$fontFamily;
   font-weight: 400;
   line-height: 1.4;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(48px);
+    @include mixins.fontSize(48px);
   }
 }
 
 @mixin body {
-  @include fontSize(18px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(18px);
+  font-family: variables.$fontFamily;
   font-weight: 300;
   line-height: 1.6;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(24px);
+    @include mixins.fontSize(24px);
   }
 }
 
 @mixin nav {
-  @include fontSize(14px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(14px);
+  font-family: variables.$fontFamily;
   font-weight: 400;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(16px);
+    @include mixins.fontSize(16px);
   }
 }
 
 @mixin label {
-  @include fontSize(10px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(10px);
+  font-family: variables.$fontFamily;
   font-weight: 400;
   letter-spacing: .1px;
   text-transform: uppercase;
@@ -59,32 +62,32 @@
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(12px);
+    @include mixins.fontSize(12px);
   }
 }
 
 @mixin modalHeading {
-  @include fontSize(24px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(24px);
+  font-family: variables.$fontFamily;
   font-weight: 400;
   line-height: 1.4;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(32px);
+    @include mixins.fontSize(32px);
   }
 };
 
 @mixin modalBody {
-  @include fontSize(14px);
-  font-family: $fontFamily;
+  @include mixins.fontSize(14px);
+  font-family: variables.$fontFamily;
   font-weight: 300;
   line-height: 1.6;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
 
   @media(min-width: 768px) {
-    @include fontSize(16px);
+    @include mixins.fontSize(16px);
   }
 }

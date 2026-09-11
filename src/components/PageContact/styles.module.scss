@@ -1,0 +1,10 @@
+@use '#scss/lib' as lib;
+
+.title {
+  @include lib.heading-2;
+  margin: 0 0 18px 0;
+}
+
+.body {
+  @include lib.body;
+}

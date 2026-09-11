@@ -1,22 +1,22 @@
 import * as React from 'react';
 import type { IHomepageProps } from '../../interfaces';
 import Logo from '#components/Logo';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const PageHero = ({ data }: IHomepageProps) => {
   return (
-    <div className="hero">
-      <div className="hero__inner">
-        <div className="hero__logoWrapper">
+    <div className={styles.hero}>
+      <div className={styles.inner}>
+        <div className={styles.logoWrapper}>
           <Logo />
         </div>
 
-        <div className="hero__content">
-          <h1 className="hero__title">
+        <div>
+          <h1 className={styles.title}>
             {data?.data.title.text}
           </h1>
 
-          <h2 className="hero__subtitle">
+          <h2 className={styles.subtitle}>
           {data?.data.subtitle.text}
           </h2>
         </div>

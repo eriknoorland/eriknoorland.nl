@@ -1,9 +1,11 @@
+@use 'variables';
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-size: $fontSize;
+  font-size: variables.$fontSize;
   overflow-x: hidden;
   color: #303030;
 }

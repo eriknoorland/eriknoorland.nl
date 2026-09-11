@@ -2,7 +2,19 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+import * as path from 'path';
 import type { GatsbyConfig } from 'gatsby';
+
+const SCSS_ALIAS = '#scss/';
+
+// Resolves `@use '#scss/<path>'` to `src/scss/<path>`, mirroring the `#scss/*` TS path alias for Sass's own module resolution.
+const scssAliasImporter = (url: string) => {
+  if (!url.startsWith(SCSS_ALIAS)) {
+    return null;
+  }
+
+  return { file: path.resolve(__dirname, 'src/scss', url.slice(SCSS_ALIAS.length)) };
+};
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -14,7 +26,19 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: '[local]--[hash:hex:5]',
+          },
+        },
+        sassOptions: {
+          importer: scssAliasImporter,
+        },
+      },
+    },
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-prismic',

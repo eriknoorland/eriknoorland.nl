@@ -1,0 +1,52 @@
+@use '#scss/lib' as lib;
+
+.title {
+  @include lib.modalHeading;
+  margin: 0 0 lib.rem(8px) 0;
+}
+
+.category {
+  @include lib.label;
+  display: inline-block;
+  margin: 0 0 lib.rem(24px) 0;
+  padding: 8px;
+  color: #fff;
+  background: #303030;
+  border-radius: lib.$borderRadius;
+}
+
+.body {
+  @include lib.modalBody;
+}
+
+.tags {
+  margin: lib.rem(32px) 0 0 0;
+}
+
+.tagsLabel {
+  @include lib.label;
+  margin: lib.rem(32px) lib.rem(4px) 0 0;
+}
+
+.tagsList {
+  @include lib.label;
+  margin: lib.rem(32px) 0 0 0;
+  color: #666;
+}
+
+.button {
+  @include lib.label;
+  display: inline-block;
+  margin: lib.rem(32px) 0 0 0;
+  padding: 14px 20px;
+  border-radius: 20px;
+  background: #303030;
+  color: #fff;
+  text-decoration: none;
+  transition: background .35s;
+
+  &:hover {
+    background: rgba(#303030, 0.7);
+    color: #fff;
+  }
+}
