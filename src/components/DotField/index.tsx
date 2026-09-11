@@ -15,6 +15,7 @@ const REPEL_RADIUS = 160;
 const MAX_PUSH = 40;
 const EASE = 0.12;
 const DOT_COLOR = '#ccc';
+const MIN_OPACITY = 0.15;
 
 export default () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -92,11 +93,16 @@ export default () => {
         dot.dx += (targetDx - dot.dx) * EASE;
         dot.dy += (targetDy - dot.dy) * EASE;
 
+        const displacement = Math.sqrt(dot.dx * dot.dx + dot.dy * dot.dy);
+        const fade = Math.min(displacement / MAX_PUSH, 1);
+
+        ctx.globalAlpha = 1 - fade * (1 - MIN_OPACITY);
         ctx.beginPath();
         ctx.arc(dot.ox + dot.dx, dot.oy + dot.dy, DOT_RADIUS, 0, Math.PI * 2);
         ctx.fill();
       });
 
+      ctx.globalAlpha = 1;
       animationFrame = requestAnimationFrame(tick);
     };
 
