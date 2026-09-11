@@ -14,7 +14,16 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            localIdentName: '[local]--[hash:hex:5]',
+          },
+        },
+      },
+    },
     'gatsby-plugin-image',
     {
       resolve: 'gatsby-source-prismic',
