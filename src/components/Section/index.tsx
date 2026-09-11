@@ -1,4 +1,5 @@
 import * as React from 'react';
+import DotField from '#components/DotField';
 import type { TProps } from './interfaces';
 import * as styles from './styles.module.scss';
 
@@ -13,6 +14,7 @@ const Section = ({ id, modifiers, children }: TProps) => {
       id={id}
       className={`${styles.section} ${modifiers ? MODIFIER_CLASSES[modifiers] : ''}`}
     >
+      {modifiers === 'hero' && <DotField />}
       {children}
     </section>
   );
