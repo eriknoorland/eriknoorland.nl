@@ -7,6 +7,9 @@
   "keywords": [
     "gatsby"
   ],
+  "engines": {
+    "node": ">=22.23.2"
+  },
   "scripts": {
     "develop": "concurrently -n scss,gatsby -c blue,green --kill-others \"npm run scss-types:watch\" \"gatsby develop\"",
     "start": "npm run develop",
@@ -20,22 +23,34 @@
     "prebuild": "npm run scss-types"
   },
   "dependencies": {
-    "@prismicio/react": "^2.7.3",
     "gatsby": "^5.13.0",
     "gatsby-plugin-image": "^3.13.0",
-    "gatsby-plugin-prismic-previews": "^6.0.1",
     "gatsby-plugin-sass": "^6.13.0",
     "gatsby-source-prismic": "^6.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "sass": "^1.69.5"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "concurrently": "^10.0.5",
     "typed-scss-modules": "^8.1.1",
-    "typescript": "^5.1.6"
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "lmdb@2.5.2": true,
+    "lmdb@2.5.3": true,
+    "@parcel/watcher@2.6.0": true,
+    "core-js@3.50.0": true,
+    "core-js-pure@3.24.1": true,
+    "es5-ext@0.10.61": true,
+    "esbuild@0.17.19": true,
+    "fsevents@2.3.2": true,
+    "gatsby@5.16.1": true,
+    "gatsby-cli@5.16.0": true,
+    "msgpackr-extract@3.0.2": true,
+    "sharp@0.32.6": true
   }
 }
