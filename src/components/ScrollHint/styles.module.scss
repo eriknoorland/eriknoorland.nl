@@ -1,4 +1,4 @@
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .scrollHint {
   display: flex;
@@ -26,7 +26,7 @@
 }
 
 .label {
-  @include label;
+  @include lib.label;
   display: block;
 }
 

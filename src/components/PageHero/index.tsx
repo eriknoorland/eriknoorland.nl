@@ -11,7 +11,7 @@ const PageHero = ({ data }: IHomepageProps) => {
           <Logo />
         </div>
 
-        <div className="hero__content">
+        <div>
           <h1 className={styles.title}>
             {data?.data.title.text}
           </h1>

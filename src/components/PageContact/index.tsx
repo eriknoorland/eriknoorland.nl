@@ -4,7 +4,7 @@ import * as styles from './styles.module.scss';
 
 export default ({ data }: IContactpageProps) => {
   return (
-    <div className="contact">
+    <div>
       <h2 className={styles.title}>
         {data?.data.title.text}
       </h2>

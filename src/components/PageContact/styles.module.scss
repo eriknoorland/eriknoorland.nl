@@ -1,10 +1,10 @@
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .title {
-  @include heading-2;
+  @include lib.heading-2;
   margin: 0 0 18px 0;
 }
 
 .body {
-  @include body;
+  @include lib.body;
 }

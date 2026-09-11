@@ -1,4 +1,4 @@
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .filters {
   display: flex;
@@ -12,7 +12,7 @@
   margin: 0 8px 8px 0;
   padding: 8px 12px;
   background: #f2f2f2;
-  border-radius: $borderRadius;
+  border-radius: lib.$borderRadius;
   transition: background .35s, color .35s;
   cursor: pointer;
 
@@ -32,6 +32,6 @@
 }
 
 .label {
-  @include label;
+  @include lib.label;
   margin: 0 0 0 8px;
 }

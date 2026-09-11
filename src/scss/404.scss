@@ -1,31 +1,29 @@
-@use 'sass:math';
-
-@import "reset.scss";
-@import "lib.scss";
-@import "globals.scss";
+@use 'reset';
+@use 'lib';
+@use 'globals';
 
 .page404Wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: rem(16px);
+  padding: lib.rem(16px);
   height: 70vh;
 }
 
 .page404 {
   max-width: 500px;
   text-align: center;
-  
+
   @media(min-width: 768px) {
     text-align: left;
   }
 }
 
 .page404__title {
-  @include heading-2;
-  margin: 0 0 rem(16px) 0;
+  @include lib.heading-2;
+  margin: 0 0 lib.rem(16px) 0;
 }
 
 .page404__body {
-  @include body;
+  @include lib.body;
 }

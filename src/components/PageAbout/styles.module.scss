@@ -1,4 +1,4 @@
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .about {
   display: flex;
@@ -13,18 +13,18 @@
 }
 
 .imageWrapper {
-  margin-top: -#{$sectionPaddingVertical};
-  margin-right: -#{$sectionPaddingHorizontal};
-  margin-bottom: #{$sectionPaddingVertical};
-  margin-left: -#{$sectionPaddingHorizontal};
+  margin-top: -#{lib.$sectionPaddingVertical};
+  margin-right: -#{lib.$sectionPaddingHorizontal};
+  margin-bottom: #{lib.$sectionPaddingVertical};
+  margin-left: -#{lib.$sectionPaddingHorizontal};
   flex: 0 0 auto;
   order: 1;
 }
 
 @media (min-width: 768px) {
   .imageWrapper {
-    margin: 0 0 0 rem(64px);
-    width: rem(384px);
+    margin: 0 0 0 lib.rem(64px);
+    width: lib.rem(384px);
     order: 2;
   }
 }
@@ -37,7 +37,7 @@
 
 @media (min-width: 768px) {
   .image {
-    border-radius: $borderRadius;
+    border-radius: lib.$borderRadius;
   }
 }
 
@@ -52,15 +52,15 @@
 }
 
 .title {
-  @include heading-2;
-  margin: 0 0 rem(18px) 0;
+  @include lib.heading-2;
+  margin: 0 0 lib.rem(18px) 0;
 }
 
 .body {
-  @include body;
+  @include lib.body;
 
   p {
-    margin: 0 0 rem(32px) 0;
+    margin: 0 0 lib.rem(32px) 0;
 
     &:last-child {
       margin: 0;

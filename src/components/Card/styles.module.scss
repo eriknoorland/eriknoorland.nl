@@ -1,8 +1,8 @@
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .projectCard {
   position: relative;
-  border-radius: $borderRadius;
+  border-radius: lib.$borderRadius;
   overflow: hidden;
   transform: translateY(40%);
   opacity: 0;
@@ -27,14 +27,14 @@
 }
 
 .category {
-  @include label;
+  @include lib.label;
   position: absolute;
   top: 0;
   right: 16px;
   padding: 8px;
   background: #303030;
   color: #fff;
-  border-bottom-left-radius: $borderRadius;
-  border-bottom-right-radius: $borderRadius;
+  border-bottom-left-radius: lib.$borderRadius;
+  border-bottom-right-radius: lib.$borderRadius;
   transform: translate3d(0, 0, 0);
 }

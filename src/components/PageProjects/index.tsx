@@ -10,7 +10,7 @@ const PageProjects = ({ projects, filters, onSelectProject }: TProps) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   return (
-    <div className="projects">
+    <div>
       <h2 className={styles.title}>
         Projects
       </h2>
@@ -22,7 +22,7 @@ const PageProjects = ({ projects, filters, onSelectProject }: TProps) => {
         className={styles.filters}
       />
 
-      <div className="projects__grid">
+      <div>
         <div className={styles.gridInner}>
           <div>
             {

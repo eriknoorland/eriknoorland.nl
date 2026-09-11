@@ -1,19 +1,13 @@
-@use 'sass:math';
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .title {
-  @include heading-2;
+  @include lib.heading-2;
   margin: 0 0 18px 0;
-}
-
-.body {
-  @include body;
-  margin: 0 0 32px 0;
 }
 
 .gridInner {
   columns: 3 300px;
-  column-gap: $sectionPaddingHorizontal;
+  column-gap: lib.$sectionPaddingHorizontal;
 }
 
 .filters {

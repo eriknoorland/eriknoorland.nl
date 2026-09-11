@@ -15,7 +15,7 @@ const ProjectDetailModal = ({ data, isOpen, onClose }: TProjectDetailModalProps)
       isOpen={isOpen}
       onClose={onClose}
     >
-      <div className="projectModal">
+      <div>
         <h4 className={styles.title}>
           {data.title.text}
         </h4>

@@ -1,4 +1,4 @@
-@import "../../scss/lib.scss";
+@use '../../scss/lib';
 
 .header {
   display: flex;
@@ -8,8 +8,8 @@
   top: 0;
   right: 0;
   left: 0;
-  padding: 5px #{$sectionPaddingHorizontal};
-  height: $topNavigationHeight;
+  padding: 5px #{lib.$sectionPaddingHorizontal};
+  height: lib.$topNavigationHeight;
   background: #fff;
   border-bottom: 1px solid #f2f2f2;
   z-index: 999;
@@ -21,7 +21,7 @@
   }
 
   @media(min-width: 768px) {
-    padding: 5px #{$sectionPaddingDesktopHorizontal};
+    padding: 5px #{lib.$sectionPaddingDesktopHorizontal};
   }
 }
 
@@ -36,7 +36,7 @@
 }
 
 .navLink {
-  @include nav;
+  @include lib.nav;
   position: relative;
   display: block;
   margin: 0 8px;
