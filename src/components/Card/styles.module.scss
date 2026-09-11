@@ -8,7 +8,7 @@
   opacity: 0;
   transition: transform .35s, opacity .35s;
 
-  &--inView {
+  &.inView {
     transform: translateY(0);
     opacity: 1;
   }
@@ -16,8 +16,8 @@
   cursor: pointer;
 }
 
-.projectCard__image,
-.projectCard__video {
+.image,
+.video {
   display: block;
   padding: 4px;
   width: 100%;
@@ -26,7 +26,7 @@
   border: 1px solid rgba(#303030, .2);
 }
 
-.project__category {
+.category {
   @include label;
   position: absolute;
   top: 0;

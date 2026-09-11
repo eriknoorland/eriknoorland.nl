@@ -1,12 +1,12 @@
 @import "../../scss/lib.scss";
 
-.projectFilters {
+.filters {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.projectFilters__item {
+.item {
   display: flex;
   align-items: center;
   margin: 0 8px 8px 0;
@@ -21,17 +21,17 @@
   }
 
   &:hover,
-  &--selected {
+  &.itemSelected {
     background: #303030;
     color: #fff;
   }
 }
 
-.projectFilters__input {
+.input {
   margin: 0;
 }
 
-.projectFilters__label {
+.label {
   @include label;
   margin: 0 0 0 8px;
 }

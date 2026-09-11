@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { TModalProps } from './interfaces';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const Modal = ({ isOpen, onClose, children }: TModalProps) => {
   const [isModalOpen, setModalOpen] = useState(isOpen);
@@ -86,10 +86,10 @@ const Modal = ({ isOpen, onClose, children }: TModalProps) => {
       ref={modalRef}
       onKeyDown={handleKeyDown}
       onClick={handleBackdropClick}
-      className="modal"
+      className={styles.modal}
     >
       <button
-        className="modal__close"
+        className={styles.close}
         onClick={handleCloseModal}
         aria-label="Modal close button"
       />

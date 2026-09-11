@@ -1,11 +1,11 @@
 import * as React from 'react';
 import type { IAboutpageProps } from '../../interfaces';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 export default ({ data }: IAboutpageProps) => {
   return (
-    <div className="about">
-      <div className="about__imageWrapper">
+    <div className={styles.about}>
+      <div className={styles.imageWrapper}>
 
         <img
           src={`${data?.data.image?.url}&w=384`}
@@ -13,18 +13,18 @@ export default ({ data }: IAboutpageProps) => {
           width={data?.data.image?.dimensions?.width}
           height={data?.data.image?.dimensions?.height}
           alt="Picture of Erik Noorland"
-          className="about__image"
+          className={styles.image}
         />
       </div>
 
-      <div className="about__content">
-        <h2 className="about__title">
+      <div className={styles.content}>
+        <h2 className={styles.title}>
           {data?.data.title.text}
         </h2>
 
         <div
           dangerouslySetInnerHTML={{ __html: data?.data.body.html || '' }}
-          className="about__body"
+          className={styles.body}
         />
       </div>
     </div>

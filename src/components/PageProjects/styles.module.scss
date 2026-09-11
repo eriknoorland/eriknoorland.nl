@@ -1,25 +1,25 @@
 @use 'sass:math';
 @import "../../scss/lib.scss";
 
-.projects__title {
+.title {
   @include heading-2;
   margin: 0 0 18px 0;
 }
 
-.projects__body {
+.body {
   @include body;
   margin: 0 0 32px 0;
 }
 
-.projects__gridInner {
+.gridInner {
   columns: 3 300px;
   column-gap: $sectionPaddingHorizontal;
 }
 
-.projects__filters {
+.filters {
   margin: 0 0 32px 0;
 }
 
-.projects__item {
+.item {
   margin: 0 0 16px 0;
 }

@@ -12,7 +12,7 @@
   }
 }
 
-.about__imageWrapper {
+.imageWrapper {
   margin-top: -#{$sectionPaddingVertical};
   margin-right: -#{$sectionPaddingHorizontal};
   margin-bottom: #{$sectionPaddingVertical};
@@ -22,43 +22,43 @@
 }
 
 @media (min-width: 768px) {
-  .about__imageWrapper {
+  .imageWrapper {
     margin: 0 0 0 rem(64px);
     width: rem(384px);
     order: 2;
   }
 }
 
-.about__image {
+.image {
   display: block;
   width: 100%;
   height: auto;
 }
 
 @media (min-width: 768px) {
-  .about__image {
+  .image {
     border-radius: $borderRadius;
   }
 }
 
-.about__content {
+.content {
   order: 2;
 }
 
 @media (min-width: 768px) {
-  .about__content {
+  .content {
     order: 1;
   }
 }
 
-.about__title {
+.title {
   @include heading-2;
   margin: 0 0 rem(18px) 0;
 }
 
-.about__body {
+.body {
   @include body;
-  
+
   p {
     margin: 0 0 rem(32px) 0;
 

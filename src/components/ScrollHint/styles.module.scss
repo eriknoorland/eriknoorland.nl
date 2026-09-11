@@ -11,21 +11,21 @@
   visibility: hidden;
   transition: opacity .25s, visibility .25s;
 
-  &--visible {
+  &.visible {
     opacity: 1;
     visibility: visible;
   }
 }
 
-.scrollHint__icon {
+.icon {
   margin: 0 0 8px 0;
 
-  .scrollHint--visible & {
+  &.iconVisible {
     animation: scroll-hint-bounce 2s infinite;
   }
 }
 
-.scrollHint__label {
+.label {
   @include label;
   display: block;
 }

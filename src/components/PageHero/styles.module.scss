@@ -7,7 +7,7 @@
   height: 100%;
 }
 
-.hero__inner {
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@
   }
 }
 
-.hero__logoWrapper {
+.logoWrapper {
   margin: 0 0 32px 0;
   width: 200px;
 
@@ -30,11 +30,11 @@
   }
 }
 
-.hero__logo {
+.logo {
   fill: #303030;
 }
 
-.hero__title {
+.title {
   @include fontSize(36px);
   font-family: $fontFamily;
   font-weight: 400;
@@ -45,7 +45,7 @@
   }
 }
 
-.hero__subtitle {
+.subtitle {
   @include fontSize(24px);
   font-family: $fontFamily;
   font-weight: 300;

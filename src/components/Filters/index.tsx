@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { TProps } from './interfaces';
 
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 export default ({ data, selected, onChangeHandler, className }: TProps) => {
   const handleOnChange = (event: React.FormEvent<HTMLInputElement>) => {
@@ -20,21 +20,21 @@ export default ({ data, selected, onChangeHandler, className }: TProps) => {
   };
 
   return (
-    <div className={`projectFilters ${className}`}>
+    <div className={`${styles.filters} ${className}`}>
       {data.map((filter, index) => {
         return <label
           key={index}
-          className={`projectFilters__item ${selected.includes(filter) && 'projectFilters__item--selected'}`}
+          className={`${styles.item} ${selected.includes(filter) ? styles.itemSelected : ''}`}
         >
           <input
             type="checkbox"
             id={filter}
             value={filter}
-            className="projectFilters__input"
+            className={styles.input}
             onChange={handleOnChange}
           />
 
-          <span className="projectFilters__label">
+          <span className={styles.label}>
             {filter}
           </span>
         </label>

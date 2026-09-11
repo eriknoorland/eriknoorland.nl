@@ -4,14 +4,14 @@ import Filters from '#components/Filters';
 import Card from '#components/Card';
 import type { TProps } from './interfaces';
 
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const PageProjects = ({ projects, filters, onSelectProject }: TProps) => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   return (
     <div className="projects">
-      <h2 className="projects__title">
+      <h2 className={styles.title}>
         Projects
       </h2>
 
@@ -19,11 +19,11 @@ const PageProjects = ({ projects, filters, onSelectProject }: TProps) => {
         data={filters}
         selected={selectedFilters}
         onChangeHandler={setSelectedFilters}
-        className="projects__filters"
+        className={styles.filters}
       />
 
       <div className="projects__grid">
-        <div className="projects__gridInner">
+        <div className={styles.gridInner}>
           <div>
             {
               projects
@@ -32,7 +32,7 @@ const PageProjects = ({ projects, filters, onSelectProject }: TProps) => {
                   <React.Fragment key={index}>
                     <Card
                       data={project}
-                      className="projects__item"
+                      className={styles.item}
                       onCustomClick={onSelectProject}
                     />
                   </React.Fragment>
