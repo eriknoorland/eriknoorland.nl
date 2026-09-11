@@ -1,6 +1,1 @@
 declare module '*.scss';
-
-declare module '*.module.scss' {
-  const classes: { readonly [key: string]: string };
-  export = classes;
-}

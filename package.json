@@ -8,12 +8,16 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "develop": "concurrently -n scss,gatsby -c blue,green --kill-others \"npm run scss-types:watch\" \"gatsby develop\"",
+    "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "scss-types": "typed-scss-modules \"src/**/*.module.scss\" --exportType named --nameFormat dashes --implementation sass --logLevel error",
+    "scss-types:watch": "npm run scss-types -- --watch",
+    "pretypecheck": "npm run scss-types",
+    "prebuild": "npm run scss-types"
   },
   "dependencies": {
     "@prismicio/react": "^2.7.3",
@@ -30,6 +34,8 @@
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "concurrently": "^10.0.5",
+    "typed-scss-modules": "^8.1.1",
     "typescript": "^5.1.6"
   }
 }
