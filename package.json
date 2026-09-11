@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "scss-types": "typed-scss-modules \"src/**/*.module.scss\" --exportType named --nameFormat dashes --implementation sass --logLevel error",
+    "scss-types": "typed-scss-modules \"src/**/*.module.scss\" --exportType named --nameFormat dashes --implementation sass --aliasPrefixes.#scss/ src/scss/ --logLevel error",
     "scss-types:watch": "npm run scss-types -- --watch",
     "pretypecheck": "npm run scss-types",
     "prebuild": "npm run scss-types"
